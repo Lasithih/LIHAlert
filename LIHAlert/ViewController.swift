@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var textAlert: LIHAlert?
+    var processingAlert: LIHAlert?
+    var customViewAlert: LIHAlert?
+    var successAlert: LIHAlert?
     var errorAlert: LIHAlert?
 
     override func viewDidLoad() {
@@ -25,35 +29,58 @@ class ViewController: UIViewController {
     
     //MARK: - Private Methods
     func initAlerts() {
-        print(self.navigationController?.navigationBar.frame.height)
-//        self.errorAlert = LIHAlert()
-//        if let alert = self.errorAlert {
-//            alert.alertType = LIHAlertType.Custom
-//            alert.hasNavigationBar = true
-//            var vw = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 70.0))
-//            vw.backgroundColor = UIColor.blueColor()
-//            alert.alertView = vw
-//        }
-//        self.errorAlert?.initAlert(self.view)
-
-        self.errorAlert = LIHAlert()
-        if let alert = self.errorAlert {
-            alert.alertType = LIHAlertType.TextWithLoading
-            alert.hasNavigationBar = true
-            alert.contentText = "Sample message"
-            alert.contentTextColor = UIColor.whiteColor()
-            alert.alertColor = UIColor.grayColor()
-            alert.contentTextFont = UIFont(name: "Bradley Hand", size: 20)
-        }
+        
+        
+        let width = UIScreen.mainScreen().bounds.width
+        let height = 534.0 / 950.0 * width
+        let customView = UIImageView(frame: CGRectMake(0.0, 64.0, width, height))
+        customView.image = UIImage(named: "customViewImage")
+        self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView)
+        self.customViewAlert?.initAlert(self.view)
+        
+        self.processingAlert = LIHAlertManager.getProcessingAlert("Fetching data...")
+        self.processingAlert?.initAlert(self.view)
+        
+        self.textAlert = LIHAlertManager.getTestAlert("Sample Message")
+        self.textAlert?.initAlert(self.view)
+        
+        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully executed")
+        self.successAlert?.initAlert(self.view)
+        
+        self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
         self.errorAlert?.initAlert(self.view)
-    
     }
 
     //MARK: - Events
     @IBAction func showTapped(sender: AnyObject) {
         
-        self.errorAlert?.show(nil, hidden: nil)
+        self.textAlert?.show(nil, hidden: nil)
     }
 
+    @IBAction func showProcessingAlert(sender: AnyObject) {
+        
+        self.processingAlert?.show(nil, hidden: nil)
+    }
+    
+    @IBAction func hideProcessiongAlert(sender: AnyObject) {
+        
+        self.processingAlert?.hideAlert(nil)
+    }
+    
+    @IBAction func showCustomView(sender: AnyObject) {
+        
+        self.customViewAlert?.show(nil, hidden: nil)
+        
+    }
+    
+    @IBAction func showSuccessAlert(sender: AnyObject) {
+        
+        self.successAlert?.show(nil, hidden: nil)
+    }
+    
+    @IBAction func showErrorAlert(sender: AnyObject) {
+        
+        self.errorAlert?.show(nil, hidden: nil)
+    }
 }
 

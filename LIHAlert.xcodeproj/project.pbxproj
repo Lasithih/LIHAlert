@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7836FA201BCFADD9004C0676 /* LIHAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836FA1F1BCFADD9004C0676 /* LIHAlertManager.swift */; settings = {ASSET_TAGS = (); }; };
 		786766711B999A8800119089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786766701B999A8800119089 /* AppDelegate.swift */; };
 		786766731B999A8800119089 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786766721B999A8800119089 /* ViewController.swift */; };
 		786766761B999A8800119089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786766741B999A8800119089 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7836FA1F1BCFADD9004C0676 /* LIHAlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LIHAlertManager.swift; sourceTree = "<group>"; };
 		7867666B1B999A8800119089 /* LIHAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LIHAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7867666F1B999A8800119089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		786766701B999A8800119089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				786766951B999B2500119089 /* LIHAlert.swift */,
+				7836FA1F1BCFADD9004C0676 /* LIHAlertManager.swift */,
 			);
 			path = LIHAlert;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7836FA201BCFADD9004C0676 /* LIHAlertManager.swift in Sources */,
 				786766731B999A8800119089 /* ViewController.swift in Sources */,
 				786766961B999B2500119089 /* LIHAlert.swift in Sources */,
 				786766711B999A8800119089 /* AppDelegate.swift in Sources */,

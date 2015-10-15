@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum LIHAlertType {
-    case Custom, Text, TextWithLoading
+    case Custom, Text, TextWithLoading, TextWithIcon
 }
 
 class LIHAlert {
@@ -32,6 +32,13 @@ class LIHAlert {
     var titleTextFont: UIFont?{
         didSet {
             self.titleLabel?.font = self.titleTextFont
+        }
+    }
+    var titleTextFontSize: CGFloat? {
+        didSet {
+            if let fontName = self.titleLabel?.font.fontName, size = self.titleTextFontSize {
+                self.titleLabel?.font = UIFont(name: fontName, size: size)
+            }
         }
     }
     
@@ -60,7 +67,11 @@ class LIHAlert {
     
     //Icon
     private var iconImageView: UIImageView?
-    var icon: UIImage?
+    var icon: UIImage? {
+        didSet{
+            self.iconImageView?.image = self.icon
+        }
+    }
     
     //AlertView
     var alertView: UIView? {
@@ -87,7 +98,7 @@ class LIHAlert {
     }
     var alertHeight:CGFloat = 75.0 {
         didSet {
-            ///////////
+            self.overlayView?.frame.size.height = self.alertHeight
         }
     }
     
@@ -110,35 +121,37 @@ class LIHAlert {
     private var lblContentText: UILabel?
     private var lblTitle: UILabel?
     
-    var isAlertVisible: Bool = false
+    //validation
+    private var scheduledAutoClose: dispatch_cancelable_closure?
     
     
     func initAlert(container: UIView) {
         
-        
+        //Create OverlayView and add to Container(self.view)
         self.overlayView = UIView()
         self.overlayView?.userInteractionEnabled = false
         self.overlayView?.clipsToBounds = true
-        self.overlayView?.backgroundColor = UIColor.blackColor()//ATTENTION
+        //self.overlayView?.backgroundColor = UIColor.blackColor()//ATTENTION
+        var overlayHeight = self.alertHeight
+        var topMargin: CGFloat = 0.0
         
+        if let customView = self.alertView {
+            overlayHeight = customView.frame.size.height
+        }
+        if self.hasNavigationBar {
+            topMargin = self.navBarHeight
+        }
         if let overlay = self.overlayView {
             container.addSubview(overlay)
             container.bringSubviewToFront(overlay)
+            overlay.translatesAutoresizingMaskIntoConstraints = false
+            let heightToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: overlayHeight)
+            let topToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: container, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: topMargin)
+            let leftToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: container, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0.0)
+            let rightToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: container, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0.0)
             
-            
+            container.addConstraints([heightToContainer,topToContainer,leftToContainer,rightToContainer])
         }
-        
-        if self.hasNavigationBar {
-            self.overlayView?.frame.origin.y = self.navBarHeight
-            if let customView = self.alertView {
-                
-                self.overlayView?.frame.size.height = customView.frame.size.height
-            } else {
-                self.overlayView?.frame.size.height = self.alertHeight
-            }
-        }
-        
-        
         
         
         if self.alertType == LIHAlertType.Custom {
@@ -147,12 +160,14 @@ class LIHAlert {
             
         } else if self.alertType == LIHAlertType.Text {
             self.mainViewConfig()
-            
             self.configTypeText()
+            
         } else if self.alertType == LIHAlertType.TextWithLoading {
             self.mainViewConfig()
-            
             self.configTypeTextWithLoading()
+        } else if self.alertType == LIHAlertType.TextWithIcon {
+            self.mainViewConfig()
+            self.configTypeTextWithIcon()
         }
         
         if let mainview = self.viewMain {
@@ -164,7 +179,6 @@ class LIHAlert {
     
     func mainViewConfig() {
         
-        //var width = UIScreen.mainScreen().bounds.width
         self.viewMain = UIView()
         
         if let mainView = self.viewMain {
@@ -252,24 +266,50 @@ class LIHAlert {
     
     func configTypeTextWithIcon() {
         
-        if let _ = self.viewMain {
+        let iconContainer = UIView()
+        self.viewMain?.addSubview(iconContainer)
+        iconContainer.translatesAutoresizingMaskIntoConstraints = false
+        self.iconImageView = UIImageView()
+        iconImageView?.image = self.icon
+        
+        if let imgView = self.iconImageView {
+            //Imageview
+            iconContainer.addSubview(imgView)
             
-            self.configTypeText()
+            let imgLeftCon = NSLayoutConstraint(item: imgView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: iconContainer, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0)
+            let imgTopCon = NSLayoutConstraint(item: imgView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: iconContainer, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
+            let imgBottomCon = NSLayoutConstraint(item: imgView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: iconContainer, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
             
-            self.activityIndicatorLoading = UIActivityIndicatorView(activityIndicatorStyle: self.activityIndicatorStyle)
-            if let loading = self.activityIndicatorLoading {
-                self.viewMain?.addSubview(loading)
-                loading.translatesAutoresizingMaskIntoConstraints = false
+            imgView.translatesAutoresizingMaskIntoConstraints = false
+            iconContainer.addConstraints([imgLeftCon,imgTopCon,imgBottomCon])
+            
+            
+            //content
+            self.contentLabel = UILabel()
+            self.contentLabel?.text = self.contentText
+            self.contentLabel?.textColor = self.contentTextColor
+            self.contentLabel?.font = self.contentTextFont
+            
+            if let label = self.contentLabel {
+                label.translatesAutoresizingMaskIntoConstraints = false
+                iconContainer.addSubview(label)
                 
-                let rightCon = NSLayoutConstraint(item: loading, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.contentLabel, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: -10.0)
-                let centerYAct = NSLayoutConstraint(item: loading, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.contentLabel, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+                let centerY = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: iconContainer, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: self.paddingTop)
+                let imgTextLeftCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: imgView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 20)
+                let imgTextRightCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: iconContainer, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
                 
-                self.viewMain?.addConstraints([rightCon, centerYAct])
+                label.translatesAutoresizingMaskIntoConstraints = false
+                iconContainer.addConstraints([centerY,imgTextLeftCon, imgTextRightCon])
             }
-            
-            
+
         }
+        
+        let centerIconContainerX = NSLayoutConstraint(item: iconContainer, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0.0)
+        let centerIconContainerY = NSLayoutConstraint(item: iconContainer, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0.0)
+        
+        self.viewMain?.addConstraints([centerIconContainerX,centerIconContainerY])
     }
+    
     
     private func showAlert(completionHandler:()->()){
         
@@ -318,17 +358,18 @@ class LIHAlert {
     
     func show(showed:(()->())?, hidden:(()->())?) {
         
-        self.viewMain?.hidden = false
+        cancel_delay(self.scheduledAutoClose)
         
+        self.viewMain?.hidden = false
         self.showAlert(){
             () -> () in
             showed?()
         }
         
         if self.autoCloseEnabled {
-            let delay = self.autoCloseTimeInterval * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue(), {
+            
+            let delay = self.autoCloseTimeInterval
+            self.scheduledAutoClose = delayFunc(NSTimeInterval(delay), closure: { () -> () in
                 
                 self.hideAlert() {
                     () -> Void in
@@ -339,5 +380,47 @@ class LIHAlert {
     }
     
     
+    //dispatch
+    typealias dispatch_cancelable_closure = (cancel : Bool) -> ()
     
+    func delayFunc(time:NSTimeInterval, closure:()->()) ->  dispatch_cancelable_closure? {
+        
+        func dispatch_later(clsr:()->()) {
+            dispatch_after(
+                dispatch_time(
+                    DISPATCH_TIME_NOW,
+                    Int64(time * Double(NSEC_PER_SEC))
+                ),
+                dispatch_get_main_queue(), clsr)
+        }
+        
+        var closure:dispatch_block_t? = closure
+        var cancelableClosure:dispatch_cancelable_closure?
+        
+        let delayedClosure:dispatch_cancelable_closure = { cancel in
+            if let clsr = closure {
+                if (cancel == false) {
+                    dispatch_async(dispatch_get_main_queue(), clsr);
+                }
+            }
+            closure = nil
+            cancelableClosure = nil
+        }
+        
+        cancelableClosure = delayedClosure
+        
+        dispatch_later {
+            if let delayedClosure = cancelableClosure {
+                delayedClosure(cancel: false)
+            }
+        }
+        
+        return cancelableClosure;
+    }
+    
+    func cancel_delay(closure:dispatch_cancelable_closure?) {
+        if closure != nil {
+            closure!(cancel: true)
+        }
+    }
 }
