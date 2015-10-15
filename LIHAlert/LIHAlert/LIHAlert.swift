@@ -10,10 +10,20 @@ import Foundation
 import UIKit
 
 enum LIHAlertType {
-    case Custom, Text, TextWithLoading, TextWithIcon
+    case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons
 }
 
-class LIHAlert {
+@objc protocol LIHAlertDelegate {
+    
+    optional func buttonPressed(button: UIButton)
+    optional func buttonOnePressed(button: UIButton)
+    optional func buttonTwoPressed(button: UIButton)
+}
+
+class LIHAlert: NSObject {
+    
+    //delegates
+    var delegate: LIHAlertDelegate?
     
     private var overlayView: UIView?
     
@@ -66,12 +76,142 @@ class LIHAlert {
     private var activityIndicatorLoading: UIActivityIndicatorView?
     
     //Icon
-    private var iconImageView: UIImageView?
+    var iconImageView: UIImageView?
     var icon: UIImage? {
         didSet{
             self.iconImageView?.image = self.icon
         }
     }
+    
+    //OneButton
+    var button_textWithButton: UIButton?
+    var buttonText: String = "Dismiss" {
+        didSet {
+            self.button_textWithButton?.setTitle(self.buttonText, forState: UIControlState.Normal)
+        }
+    }
+    var buttonColor: UIColor = UIColor.blueColor() {
+        didSet {
+            self.button_textWithButton?.backgroundColor = self.buttonColor
+        }
+    }
+    var buttonTextColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            self.button_textWithButton?.setTitleColor(self.buttonTextColor, forState: UIControlState.Normal)
+        }
+    }
+    var buttonFont: UIFont? {
+        didSet {
+            if let font = self.buttonFont {
+                self.button_textWithButton?.titleLabel?.font = font
+            }
+        }
+    }
+    var buttonBordercolor: UIColor = UIColor.whiteColor() {
+        didSet {
+            self.button_textWithButton?.layer.borderColor = self.buttonBordercolor.CGColor
+        }
+    }
+    var buttonBorderWidth: CGFloat = 1.0 {
+        didSet {
+            self.button_textWithButton?.layer.borderWidth = self.buttonBorderWidth
+        }
+    }
+    var buttonCornerRadius: CGFloat = 3.0 {
+        didSet {
+            self.button_textWithButton?.layer.cornerRadius = self.buttonCornerRadius
+        }
+    }
+    var buttonWidth: CGFloat? {
+        didSet {
+            if let width = self.buttonWidth {
+                self.button_textWithButton?.frame.size.width = width
+            }
+        }
+    }
+    
+    //TWO BUTTONS
+        //ButtonOne
+    var buttonOne_textWithButton: UIButton?
+    var buttonOneText: String = "Dismiss" {
+        didSet {
+            self.buttonOne_textWithButton?.setTitle(self.buttonOneText, forState: UIControlState.Normal)
+        }
+    }
+    var buttonOneColor: UIColor = UIColor.blueColor() {
+        didSet {
+            self.buttonOne_textWithButton?.backgroundColor = self.buttonOneColor
+        }
+    }
+    var buttonOneTextColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            self.buttonOne_textWithButton?.setTitleColor(self.buttonOneTextColor, forState: UIControlState.Normal)
+        }
+    }
+    var buttonOneFont: UIFont? {
+        didSet {
+            if let font = self.buttonOneFont {
+                self.buttonOne_textWithButton?.titleLabel?.font = font
+            }
+        }
+    }
+    var buttonOneBordercolor: UIColor = UIColor.whiteColor() {
+        didSet {
+            self.buttonOne_textWithButton?.layer.borderColor = self.buttonOneBordercolor.CGColor
+        }
+    }
+    var buttonOneBorderWidth: CGFloat = 1.0 {
+        didSet {
+            self.buttonOne_textWithButton?.layer.borderWidth = self.buttonOneBorderWidth
+        }
+    }
+    var buttonOneCornerRadius: CGFloat = 3.0 {
+        didSet {
+            self.buttonOne_textWithButton?.layer.cornerRadius = self.buttonOneCornerRadius
+        }
+    }
+    
+        //ButtonTwo
+    var buttonTwo_textWithButton: UIButton?
+    var buttonTwoText: String = "Dismiss" {
+        didSet {
+            self.buttonTwo_textWithButton?.setTitle(self.buttonTwoText, forState: UIControlState.Normal)
+        }
+    }
+    var buttonTwoColor: UIColor = UIColor.blueColor() {
+        didSet {
+            self.buttonTwo_textWithButton?.backgroundColor = self.buttonTwoColor
+        }
+    }
+    var buttonTwoTextColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            self.buttonTwo_textWithButton?.setTitleColor(self.buttonTwoTextColor, forState: UIControlState.Normal)
+        }
+    }
+    var buttonTwoFont: UIFont? {
+        didSet {
+            if let font = self.buttonTwoFont {
+                self.buttonTwo_textWithButton?.titleLabel?.font = font
+            }
+        }
+    }
+    var buttonTwoBordercolor: UIColor = UIColor.whiteColor() {
+        didSet {
+            self.buttonTwo_textWithButton?.layer.borderColor = self.buttonTwoBordercolor.CGColor
+        }
+    }
+    var buttonTwoBorderWidth: CGFloat = 1.0 {
+        didSet {
+            self.buttonTwo_textWithButton?.layer.borderWidth = self.buttonTwoBorderWidth
+        }
+    }
+    var buttonTwoCornerRadius: CGFloat = 3.0 {
+        didSet {
+            self.buttonTwo_textWithButton?.layer.cornerRadius = self.buttonTwoCornerRadius
+        }
+    }
+    
+    
     
     //AlertView
     var alertView: UIView? {
@@ -129,8 +269,9 @@ class LIHAlert {
         
         //Create OverlayView and add to Container(self.view)
         self.overlayView = UIView()
-        self.overlayView?.userInteractionEnabled = false
+        //self.overlayView?.userInteractionEnabled = false
         self.overlayView?.clipsToBounds = true
+        self.overlayView?.hidden = true
         //self.overlayView?.backgroundColor = UIColor.blackColor()//ATTENTION
         var overlayHeight = self.alertHeight
         var topMargin: CGFloat = 0.0
@@ -168,6 +309,12 @@ class LIHAlert {
         } else if self.alertType == LIHAlertType.TextWithIcon {
             self.mainViewConfig()
             self.configTypeTextWithIcon()
+        } else if self.alertType == LIHAlertType.TextWithButton {
+            self.mainViewConfig()
+            self.configTypeTextWithButton()
+        } else if self.alertType == LIHAlertType.TextWithTwoButtons {
+            self.mainViewConfig()
+            self.configTypeTextWithTwoButtons()
         }
         
         if let mainview = self.viewMain {
@@ -177,7 +324,7 @@ class LIHAlert {
         }
     }
     
-    func mainViewConfig() {
+    private func mainViewConfig() {
         
         self.viewMain = UIView()
         
@@ -200,7 +347,7 @@ class LIHAlert {
         }
     }
     
-    func configTypeCustom() {
+    private func configTypeCustom() {
         
         if let alertV = self.alertView {
             
@@ -220,7 +367,7 @@ class LIHAlert {
         }
     }
     
-    func configTypeText() {
+    private func configTypeText() {
         
         if let _ = self.viewMain {
             
@@ -243,7 +390,7 @@ class LIHAlert {
             
     }
     
-    func configTypeTextWithLoading() {
+    private func configTypeTextWithLoading() {
         
         if let _ = self.viewMain {
             
@@ -264,7 +411,7 @@ class LIHAlert {
         }
     }
     
-    func configTypeTextWithIcon() {
+    private func configTypeTextWithIcon() {
         
         let iconContainer = UIView()
         self.viewMain?.addSubview(iconContainer)
@@ -304,19 +451,136 @@ class LIHAlert {
 
         }
         
-        let centerIconContainerX = NSLayoutConstraint(item: iconContainer, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0.0)
-        let centerIconContainerY = NSLayoutConstraint(item: iconContainer, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0.0)
+        let centerIconContainerX = NSLayoutConstraint(item: iconContainer, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: self.paddingLeft)
+        let centerIconContainerY = NSLayoutConstraint(item: iconContainer, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: self.paddingTop)
         
         self.viewMain?.addConstraints([centerIconContainerX,centerIconContainerY])
     }
     
+    private func configTypeTextWithButton() {
+        
+        self.contentLabel = UILabel()
+        self.contentLabel?.text = self.contentText
+        self.contentLabel?.textColor = self.contentTextColor
+        self.contentLabel?.font = self.contentTextFont
+        self.contentLabel?.textAlignment = NSTextAlignment.Center
+        self.contentLabel?.numberOfLines = 20
+        
+        if let label = self.contentLabel {
+            label.translatesAutoresizingMaskIntoConstraints = false
+            self.viewMain?.addSubview(label)
+            
+            let leftCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 20.0)
+            let rightCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -20.0)
+            let topCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 20.0 + self.paddingTop)
+            
+            label.translatesAutoresizingMaskIntoConstraints = false
+            self.viewMain?.addConstraints([topCon, leftCon, rightCon])
+        }
+        
+        self.button_textWithButton = UIButton()
+        self.button_textWithButton?.setTitle(self.buttonText, forState: UIControlState.Normal)
+        self.button_textWithButton?.backgroundColor = self.buttonColor
+        self.button_textWithButton?.setTitleColor(self.buttonTextColor, forState: UIControlState.Normal)
+        self.button_textWithButton?.layer.borderColor = self.buttonBordercolor.CGColor
+        self.button_textWithButton?.layer.borderWidth = self.buttonBorderWidth
+        self.button_textWithButton?.layer.cornerRadius = self.buttonCornerRadius
+        if let width = self.buttonWidth {
+            self.button_textWithButton?.frame.size.width = width
+        }
+    
+        if let font = self.buttonFont {
+            self.button_textWithButton?.titleLabel?.font = font
+        }
+        self.button_textWithButton?.tag = 10
+        self.button_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        if let button = self.button_textWithButton {
+            
+            button.translatesAutoresizingMaskIntoConstraints = false
+            self.viewMain?.addSubview(button)
+            
+            let bottomCon = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: -10.0)
+            let leftCon = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 20.0)
+            let rightCon = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -20.0)
+            
+            self.viewMain?.addConstraints([bottomCon,leftCon,rightCon])
+        }
+    }
+    
+    private func configTypeTextWithTwoButtons() {
+        
+        self.contentLabel = UILabel()
+        self.contentLabel?.text = self.contentText
+        self.contentLabel?.textColor = self.contentTextColor
+        self.contentLabel?.font = self.contentTextFont
+        self.contentLabel?.textAlignment = NSTextAlignment.Center
+        self.contentLabel?.numberOfLines = 20
+        
+        if let label = self.contentLabel {
+            label.translatesAutoresizingMaskIntoConstraints = false
+            self.viewMain?.addSubview(label)
+            
+            let leftCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 20.0)
+            let rightCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -20.0)
+            let topCon = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 20.0 + self.paddingTop)
+            
+            label.translatesAutoresizingMaskIntoConstraints = false
+            self.viewMain?.addConstraints([topCon, leftCon, rightCon])
+        }
+        
+        //Button one
+        self.buttonOne_textWithButton = UIButton()
+        self.buttonOne_textWithButton?.setTitle(self.buttonOneText, forState: UIControlState.Normal)
+        self.buttonOne_textWithButton?.backgroundColor = self.buttonOneColor
+        self.buttonOne_textWithButton?.setTitleColor(self.buttonOneTextColor, forState: UIControlState.Normal)
+        self.buttonOne_textWithButton?.layer.borderColor = self.buttonOneBordercolor.CGColor
+        self.buttonOne_textWithButton?.layer.borderWidth = self.buttonOneBorderWidth
+        self.buttonOne_textWithButton?.layer.cornerRadius = self.buttonOneCornerRadius
+        if let font = self.buttonOneFont {
+            self.buttonOne_textWithButton?.titleLabel?.font = font
+        }
+        self.buttonOne_textWithButton?.tag = 20
+        self.buttonOne_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        //Button two
+        self.buttonTwo_textWithButton = UIButton()
+        self.buttonTwo_textWithButton?.setTitle(self.buttonTwoText, forState: UIControlState.Normal)
+        self.buttonTwo_textWithButton?.backgroundColor = self.buttonTwoColor
+        self.buttonTwo_textWithButton?.setTitleColor(self.buttonTwoTextColor, forState: UIControlState.Normal)
+        self.buttonTwo_textWithButton?.layer.borderColor = self.buttonTwoBordercolor.CGColor
+        self.buttonTwo_textWithButton?.layer.borderWidth = self.buttonTwoBorderWidth
+        self.buttonTwo_textWithButton?.layer.cornerRadius = self.buttonTwoCornerRadius
+        if let font = self.buttonTwoFont {
+            self.buttonTwo_textWithButton?.titleLabel?.font = font
+        }
+        self.buttonTwo_textWithButton?.tag = 30
+        self.buttonTwo_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        if let buttonOne = self.buttonOne_textWithButton, buttonTwo = self.buttonTwo_textWithButton {
+            
+            buttonOne.translatesAutoresizingMaskIntoConstraints = false
+            buttonTwo.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.viewMain?.addSubview(buttonOne)
+            self.viewMain?.addSubview(buttonTwo)
+            
+            let bottomConOne = NSLayoutConstraint(item: buttonOne, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: -10.0)
+            let leftConOne = NSLayoutConstraint(item: buttonOne, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 20.0)
+            let rightConTwo = NSLayoutConstraint(item: buttonTwo, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -20.0)
+            let rightConOne = NSLayoutConstraint(item: buttonOne, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: buttonTwo, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: -20.0)
+            let bottomConTwo = NSLayoutConstraint(item: buttonTwo, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -10.0)
+            let sameWidth = NSLayoutConstraint(item: buttonOne, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: buttonTwo, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0.0)
+            
+            self.viewMain?.addConstraints([bottomConOne,leftConOne,rightConOne, rightConTwo,bottomConTwo,sameWidth])
+        }
+    }
     
     private func showAlert(completionHandler:()->()){
-        
         if let mainView = self.viewMain {
             
             mainView.hidden = false
             self.activityIndicatorLoading?.startAnimating()
+            self.overlayView?.hidden = false
             UIView.animateWithDuration(self.animationDuration, animations: { () -> Void in
                 
                 if self.hasNavigationBar {
@@ -351,6 +615,7 @@ class LIHAlert {
             
             self.activityIndicatorLoading?.stopAnimating()
             self.viewMain?.hidden = true
+            self.overlayView?.hidden = true
             completionHandler?()
         }
         
@@ -421,6 +686,25 @@ class LIHAlert {
     func cancel_delay(closure:dispatch_cancelable_closure?) {
         if closure != nil {
             closure!(cancel: true)
+        }
+    }
+    
+    
+    //MARK - Events
+    
+    func buttonPressed(sender: UIButton!) {
+        
+        if sender.tag == 10 {
+            
+            self.delegate?.buttonPressed?(sender)
+            
+        } else if sender.tag == 20 {
+            
+            self.delegate?.buttonOnePressed?(sender)
+            
+        } else if sender.tag == 30 {
+            
+            self.delegate?.buttonTwoPressed?(sender)
         }
     }
 }

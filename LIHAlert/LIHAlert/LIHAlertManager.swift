@@ -102,4 +102,51 @@ class LIHAlertManager {
         
         return errorAlert
     }
+    
+    
+    static func getTextWithButtonAlert(message: String, buttonText: String) -> LIHAlert {
+        
+        let textWithButtonAlert: LIHAlert = LIHAlert()
+        textWithButtonAlert.alertType = LIHAlertType.TextWithButton
+        textWithButtonAlert.contentText = message
+        textWithButtonAlert.buttonText = buttonText
+        textWithButtonAlert.buttonColor = UIColor(red: 22.0/255.0, green: 40.0/255.0, blue: 114.0/255.0, alpha: 1.0)
+        textWithButtonAlert.buttonWidth = 620.0
+        textWithButtonAlert.alertColor = UIColor(red: 22.0/255.0, green: 40.0/255.0, blue: 114.0/255.0, alpha: 1.0)
+        textWithButtonAlert.alertHeight = 130.0
+        textWithButtonAlert.alertAlpha = 1.0
+        textWithButtonAlert.autoCloseEnabled=false
+        textWithButtonAlert.contentTextColor = UIColor.whiteColor()
+        textWithButtonAlert.hasNavigationBar = true
+        textWithButtonAlert.paddingTop = 0.0
+        textWithButtonAlert.animationDuration = 0.35
+        textWithButtonAlert.autoCloseTimeInterval = 2.5
+        
+        return textWithButtonAlert
+    }
+    
+    
+    static func getTextWithTwoButtonsAlert(message: String, buttonOneText: String, buttonTwoText: String) -> LIHAlert {
+        
+        let textWithButtonsAlert: LIHAlert = LIHAlert()
+        textWithButtonsAlert.alertType = LIHAlertType.TextWithTwoButtons
+        textWithButtonsAlert.contentText = message
+        textWithButtonsAlert.alertColor = UIColor(red: 22.0/255.0, green: 40.0/255.0, blue: 114.0/255.0, alpha: 1.0)
+        
+        textWithButtonsAlert.buttonOneText = buttonOneText
+        textWithButtonsAlert.buttonOneColor = UIColor(red: 22.0/255.0, green: 40.0/255.0, blue: 114.0/255.0, alpha: 1.0)
+        textWithButtonsAlert.buttonTwoText = buttonTwoText
+        textWithButtonsAlert.buttonTwoColor = UIColor(red: 22.0/255.0, green: 40.0/255.0, blue: 114.0/255.0, alpha: 1.0)
+        
+        textWithButtonsAlert.alertHeight = 130.0
+        textWithButtonsAlert.alertAlpha = 1.0
+        textWithButtonsAlert.autoCloseEnabled=false
+        textWithButtonsAlert.contentTextColor = UIColor.whiteColor()
+        textWithButtonsAlert.hasNavigationBar = true
+        textWithButtonsAlert.paddingTop = 0.0
+        textWithButtonsAlert.animationDuration = 0.35
+        textWithButtonsAlert.autoCloseTimeInterval = 2.5
+        
+        return textWithButtonsAlert
+    }
 }

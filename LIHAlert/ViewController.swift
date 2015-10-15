@@ -15,11 +15,12 @@ class ViewController: UIViewController {
     var customViewAlert: LIHAlert?
     var successAlert: LIHAlert?
     var errorAlert: LIHAlert?
+    var textWithButtonAlert: LIHAlert?
+    var textWithTwoButtonsAlert: LIHAlert?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initAlerts()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,17 +39,23 @@ class ViewController: UIViewController {
         self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView)
         self.customViewAlert?.initAlert(self.view)
         
+        self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert("You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")
+        self.textWithButtonAlert?.initAlert(self.view)
+        
+        self.textWithTwoButtonsAlert = LIHAlertManager.getTextWithTwoButtonsAlert("Do you want to subscribe for the monthly newsletter?", buttonOneText: "Subscribe", buttonTwoText: "Cancel")
+        self.textWithTwoButtonsAlert?.initAlert(self.view)
+        
         self.processingAlert = LIHAlertManager.getProcessingAlert("Fetching data...")
         self.processingAlert?.initAlert(self.view)
         
-        self.textAlert = LIHAlertManager.getTestAlert("Sample Message")
-        self.textAlert?.initAlert(self.view)
-        
-        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully executed")
+        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
         self.successAlert?.initAlert(self.view)
         
         self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
         self.errorAlert?.initAlert(self.view)
+        
+        self.textAlert = LIHAlertManager.getTestAlert("Sample Message")
+        self.textAlert?.initAlert(self.view)
     }
 
     //MARK: - Events
@@ -81,6 +88,42 @@ class ViewController: UIViewController {
     @IBAction func showErrorAlert(sender: AnyObject) {
         
         self.errorAlert?.show(nil, hidden: nil)
+    }
+    
+    @IBAction func shoeTextWithButton(sender: AnyObject) {
+        
+        self.textWithButtonAlert?.show(nil, hidden: nil)
+        self.textWithButtonAlert?.delegate = self
+    }
+    
+    @IBAction func showTextWithTwoButtons(sender: AnyObject) {
+        
+        self.textWithTwoButtonsAlert?.show(nil, hidden: nil)
+        self.textWithTwoButtonsAlert?.delegate = self
+    }
+    
+    
+}
+
+extension ViewController: LIHAlertDelegate {
+    
+    func buttonPressed(button: UIButton) {
+        
+        self.textWithButtonAlert?.hideAlert(nil)
+    }
+    
+    func buttonOnePressed(button: UIButton) {
+        
+        self.textWithTwoButtonsAlert?.hideAlert({ () -> () in
+            
+            self.successAlert?.show(nil, hidden: nil)
+        })
+        
+    }
+    
+    func buttonTwoPressed(button: UIButton) {
+        
+        self.textWithTwoButtonsAlert?.hideAlert(nil)
     }
 }
 
