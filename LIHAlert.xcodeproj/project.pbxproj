@@ -13,6 +13,7 @@
 		786766781B999A8800119089 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 786766771B999A8800119089 /* Images.xcassets */; };
 		7867667B1B999A8800119089 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786766791B999A8800119089 /* LaunchScreen.xib */; };
 		786766871B999A8900119089 /* LIHAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786766861B999A8900119089 /* LIHAlertTests.swift */; };
+		786766961B999B2500119089 /* LIHAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786766951B999B2500119089 /* LIHAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		786766801B999A8900119089 /* LIHAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LIHAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		786766851B999A8900119089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		786766861B999A8900119089 /* LIHAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIHAlertTests.swift; sourceTree = "<group>"; };
+		786766951B999B2500119089 /* LIHAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LIHAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		7867666D1B999A8800119089 /* LIHAlert */ = {
 			isa = PBXGroup;
 			children = (
+				786766901B999B0000119089 /* LIHAlert */,
 				786766701B999A8800119089 /* AppDelegate.swift */,
 				786766721B999A8800119089 /* ViewController.swift */,
 				786766741B999A8800119089 /* Main.storyboard */,
@@ -110,6 +113,14 @@
 				786766851B999A8900119089 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		786766901B999B0000119089 /* LIHAlert */ = {
+			isa = PBXGroup;
+			children = (
+				786766951B999B2500119089 /* LIHAlert.swift */,
+			);
+			path = LIHAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +167,9 @@
 		786766631B999A8800119089 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Lasith Hettiarachchi";
 				TargetAttributes = {
 					7867666A1B999A8800119089 = {
@@ -213,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				786766731B999A8800119089 /* ViewController.swift in Sources */,
+				786766961B999B2500119089 /* LIHAlert.swift in Sources */,
 				786766711B999A8800119089 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +290,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -342,6 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fidenz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -352,6 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fidenz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -370,6 +387,7 @@
 				);
 				INFOPLIST_FILE = LIHAlertTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fidenz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LIHAlert.app/LIHAlert";
 			};
@@ -385,6 +403,7 @@
 				);
 				INFOPLIST_FILE = LIHAlertTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fidenz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LIHAlert.app/LIHAlert";
 			};
@@ -409,6 +428,7 @@
 				7867668C1B999A8900119089 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7867668D1B999A8900119089 /* Build configuration list for PBXNativeTarget "LIHAlertTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +437,7 @@
 				7867668F1B999A8900119089 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
