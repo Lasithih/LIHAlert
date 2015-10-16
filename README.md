@@ -39,7 +39,7 @@ This is a banner with a text. This will close automatically in 1.5 seconds.
 ```
 Call showBanner() function to show the banner
 
-#####Text with an ActivityIndicator
+#####Processing Alert
 
 This is a banner with a text and an activity indicator. This is not an auto close banner. Tou have to hide it when the process is finished.
 
@@ -64,10 +64,54 @@ This is a banner with a text and an activity indicator. This is not an auto clos
     }
 ```
 Call showBanner() function to show the banner and hideBanner() to hide the banner.
-You can change the activity indicator style by using,
+To change the activity indicator style,
 ```Swift
     processingAlert?.activityIndicatorStyle = UIActivityIndicatorViewStyle.WhiteLarge
 ```
 
+#####Success Alert
+This is a banner with a text and an icon. This will close automatically in 1.5 seconds.
+
+```Swift
+    var successAlert: LIHAlert?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
+        self.successAlert?.initAlert(self.view)
+    }
+
+    func showBanner(sender: AnyObject) {
+        
+        self.successAlert?.show(nil, hidden: nil)
+    }
+```
+Call showBanner() function to show the banner.
+
+To change the icon,
+```Swift
+    successAlert?.icon = UIImage(named:"imageName")
+```
+
+#####Error Alert
+Behaviour of this alert is identical to Success Alert accept banner color, text and icon
+
+```Swift
+    var errorAlert: LIHAlert?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
+        self.errorAlert?.initAlert(self.view)
+    }
+
+    func showBanner(sender: AnyObject) {
+        
+        self.errorAlert?.show(nil, hidden: nil)
+    }
+```
+Call showBanner() function to show the banner
 
 ####2. Create a banner
