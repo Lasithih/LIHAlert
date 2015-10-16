@@ -27,7 +27,7 @@ This is a banner with a text. This will close automatically in 1.5 seconds.
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.textAlert = LIHAlertManager.getTestAlert("Sample Message")
+        self.textAlert = LIHAlertManager.getTextAlert("Sample Message")
         self.textAlert?.initAlert(self.view)
     }
     func showBanner(sender: AnyObject) {
@@ -73,7 +73,6 @@ This is a banner with a text and an icon. This will close automatically in 1.5 s
         self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
         self.successAlert?.initAlert(self.view)
     }
-
     func showBanner(sender: AnyObject) {
         self.successAlert?.show(nil, hidden: nil)
     }
@@ -86,7 +85,7 @@ To change the icon,
 ```
 
 #####Error Alert
-Behaviour of this alert is identical to Success Alert accept banner color, text and icon
+Behaviour of this alert is identical to Success Alert accept banner color, text and icon.
 
 ```Swift
     var errorAlert: LIHAlert?
@@ -96,7 +95,6 @@ Behaviour of this alert is identical to Success Alert accept banner color, text 
         self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
         self.errorAlert?.initAlert(self.view)
     }
-
     func showBanner(sender: AnyObject) {
         self.errorAlert?.show(nil, hidden: nil)
     }
