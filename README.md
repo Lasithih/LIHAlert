@@ -1,7 +1,7 @@
 # LIHAlert
-LIHAlert privides animated banners for iOS which is written using the apple's newest programming language Swift 2.0. 
+LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0. 
 
-### Requiremints
+### Requirements
 Xcode 7+
 
 ### Alert Types
@@ -16,7 +16,7 @@ Xcode 7+
 
 ####1. Predefined Banners
 
-LIHAlert containes some predefined alerts for each Alert type. You can use following code snippets to use them. 
+LIHAlert contains some predefined alerts for each Alert type. You can use following code snippets to use them. 
 
 #####Text Banner
 
@@ -85,7 +85,7 @@ To change the icon,
 ```
 
 #####Error Alert
-Behaviour of this alert is identical to Success Alert accept banner color, text and icon.
+Behavior of this alert is identical to Success Alert accept banner color, text and icon.
 
 ```Swift
     var errorAlert: LIHAlert?
