@@ -73,7 +73,11 @@ class LIHAlert: NSObject {
     }
     
     //TextWithLoading
-    var activityIndicatorStyle: UIActivityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
+    var activityIndicatorStyle: UIActivityIndicatorViewStyle = UIActivityIndicatorViewStyle.White {
+        didSet {
+            self.activityIndicatorLoading?.activityIndicatorViewStyle = self.activityIndicatorStyle
+        }
+    }
     private var activityIndicatorLoading: UIActivityIndicatorView?
     
     //Icon

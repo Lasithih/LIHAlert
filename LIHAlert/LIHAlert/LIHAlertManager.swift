@@ -12,7 +12,7 @@ import UIKit
 class LIHAlertManager {
     
     
-    static func getTestAlert(message: String) -> LIHAlert {
+    static func getTextAlert(message: String) -> LIHAlert {
         
         let alertTextAlert: LIHAlert = LIHAlert()
         alertTextAlert.alertType = LIHAlertType.Text

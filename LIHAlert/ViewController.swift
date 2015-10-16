@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
         self.errorAlert?.initAlert(self.view)
         
-        self.textAlert = LIHAlertManager.getTestAlert("Sample Message")
+        self.textAlert = LIHAlertManager.getTextAlert("Sample Message")
         self.textAlert?.initAlert(self.view)
     }
 
