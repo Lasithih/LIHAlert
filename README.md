@@ -27,13 +27,10 @@ This is a banner with a text. This will close automatically in 1.5 seconds.
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.textAlert = LIHAlertManager.getTestAlert("Sample Message")
         self.textAlert?.initAlert(self.view)
     }
-
     func showBanner(sender: AnyObject) {
-        
         self.textAlert?.show(nil, hidden: nil)
     }
 ```
@@ -48,18 +45,14 @@ This is a banner with a text and an activity indicator. This is not an auto clos
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.processingAlert = LIHAlertManager.getProcessingAlert("Fetching data...")
         self.processingAlert?.initAlert(self.view)
     }
-
     func showBanner(sender: AnyObject) {
-        
         self.processingAlert?.show(nil, hidden: nil)
     }
     
     override hideBanner(sender: AnyObject) {
-        
         self.processingAlert?.hide(nil)
     }
 ```
@@ -77,13 +70,11 @@ This is a banner with a text and an icon. This will close automatically in 1.5 s
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
         self.successAlert?.initAlert(self.view)
     }
 
     func showBanner(sender: AnyObject) {
-        
         self.successAlert?.show(nil, hidden: nil)
     }
 ```
@@ -102,13 +93,11 @@ Behaviour of this alert is identical to Success Alert accept banner color, text 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
         self.errorAlert?.initAlert(self.view)
     }
 
     func showBanner(sender: AnyObject) {
-        
         self.errorAlert?.show(nil, hidden: nil)
     }
 ```
