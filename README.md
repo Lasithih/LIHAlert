@@ -14,6 +14,12 @@ Xcode 7+
 <li>Custom view banner</li>
 </UL>
 
+###Usage
+
+####Text Banner
+
+#####Properties
+
 ```Swift
     var textAlert: LIHAlert?
 
@@ -24,8 +30,9 @@ Xcode 7+
         self.textAlert?.initAlert(self.view)
     }
 
-    @IBAction func onButtonClick(sender: AnyObject) {
+    func showBanner(sender: AnyObject) {
         
         self.textAlert?.show(nil, hidden: nil)
     }
 ```
+Call showBanner() function to show the banner
