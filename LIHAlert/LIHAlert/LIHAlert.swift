@@ -18,6 +18,7 @@ enum LIHAlertType {
     optional func buttonPressed(button: UIButton)
     optional func buttonOnePressed(button: UIButton)
     optional func buttonTwoPressed(button: UIButton)
+    
 }
 
 class LIHAlert: NSObject {
@@ -260,12 +261,17 @@ class LIHAlert: NSObject {
     private var imgViewIcon: UIImageView?
     private var lblContentText: UILabel?
     private var lblTitle: UILabel?
+    private var buttonHighlightAlpha: CGFloat = 0.5
     
     //validation
     private var scheduledAutoClose: dispatch_cancelable_closure?
+    private var topConstraintToOverlayView: NSLayoutConstraint?
     
     
     func initAlert(container: UIView) {
+        
+        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("orientationChanged:"), name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         //Create OverlayView and add to Container(self.view)
         self.overlayView = UIView()
@@ -288,6 +294,7 @@ class LIHAlert: NSObject {
             overlay.translatesAutoresizingMaskIntoConstraints = false
             let heightToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: overlayHeight)
             let topToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: container, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: topMargin)
+            self.topConstraintToOverlayView = topToContainer
             let leftToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: container, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0.0)
             let rightToContainer = NSLayoutConstraint(item: overlay, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: container, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0.0)
             
@@ -494,6 +501,7 @@ class LIHAlert: NSObject {
         }
         self.button_textWithButton?.tag = 10
         self.button_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.button_textWithButton?.addTarget(self, action: "buttonTouchDown:", forControlEvents: UIControlEvents.TouchDown)
         if let button = self.button_textWithButton {
             
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -541,6 +549,7 @@ class LIHAlert: NSObject {
         }
         self.buttonOne_textWithButton?.tag = 20
         self.buttonOne_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonOne_textWithButton?.addTarget(self, action: "buttonTouchDown:", forControlEvents: UIControlEvents.TouchDown)
         
         //Button two
         self.buttonTwo_textWithButton = UIButton()
@@ -555,6 +564,7 @@ class LIHAlert: NSObject {
         }
         self.buttonTwo_textWithButton?.tag = 30
         self.buttonTwo_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonTwo_textWithButton?.addTarget(self, action: "buttonTouchDown:", forControlEvents: UIControlEvents.TouchDown)
         
         if let buttonOne = self.buttonOne_textWithButton, buttonTwo = self.buttonTwo_textWithButton {
             
@@ -626,6 +636,7 @@ class LIHAlert: NSObject {
         cancel_delay(self.scheduledAutoClose)
         
         self.viewMain?.hidden = false
+        
         self.showAlert(){
             () -> () in
             showed?()
@@ -690,21 +701,57 @@ class LIHAlert: NSObject {
     }
     
     
+    //Orientation
+    func orientationChanged(notification: NSNotification) {
+        
+        if self.hasNavigationBar {
+            
+            if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+                
+                self.topConstraintToOverlayView?.constant = 30.0
+                
+            } else if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+                
+                self.topConstraintToOverlayView?.constant = 20.0 + 44.0
+            }
+        }
+    }
+    
+    
     //MARK - Events
     
-    func buttonPressed(sender: UIButton!) {
+    func buttonPressed(sender: UIButton) {
         
         if sender.tag == 10 {
             
             self.delegate?.buttonPressed?(sender)
+            self.button_textWithButton?.alpha = 1.0
             
         } else if sender.tag == 20 {
             
             self.delegate?.buttonOnePressed?(sender)
+            self.buttonOne_textWithButton?.alpha = 1.0
             
         } else if sender.tag == 30 {
             
             self.delegate?.buttonTwoPressed?(sender)
+            self.buttonTwo_textWithButton?.alpha = 1.0
+        }
+    }
+    
+    func buttonTouchDown(sender: UIButton) {
+        
+        if sender.tag == 10 {
+            
+            self.button_textWithButton?.alpha = buttonHighlightAlpha
+            
+        } else if sender.tag == 20 {
+        
+            self.buttonOne_textWithButton?.alpha = buttonHighlightAlpha
+            
+        } else if sender.tag == 30 {
+            
+            self.buttonTwo_textWithButton?.alpha = buttonHighlightAlpha
         }
     }
 }
