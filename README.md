@@ -38,7 +38,7 @@ Call showBanner() function to show the banner
 
 #####Processing Alert
 
-This is a banner with a text and an activity indicator. This is not an auto close banner. Tou have to hide it when the process is finished.
+This is a banner with a text and an activity indicator. This is not an auto close banner. You have to hide it when the process is finished.
 
 ```Swift
     var processingAlert: LIHAlert?
@@ -100,5 +100,64 @@ Behavior of this alert is identical to Success Alert accept banner color, text a
     }
 ```
 Call showBanner() function to show the banner
+
+#####Text with a button Alert
+This alert contains a button along with a text. More suitable to use to alert important messages to user.
+
+```Swift
+    var textWithButtonAlert: LIHAlert?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert("You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")
+        self.textWithButtonAlert?.initAlert(self.view)
+    }
+    func showBanner(sender: AnyObject) {
+        textWithButtonAlert?.show(nil, hidden: nil)
+    }
+```
+Call showBanner() function to show the banner. 
+Implement your view controller from LIHAlertDelegate.
+
+class ViewController: LIHAlertDelegate {
+
+    func buttonPressed(button: UIButton) {
+        print(“You have pressed the button”)
+        self.textWithButtonAlert?.hideAlert(nil)
+    }
+}
+
+#####Text with two buttons Alert
+This alert contains two buttons along with a text.
+
+```Swift
+    var textWithTwoButtonsAlert: LIHAlert?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.textWithTwoButtonsAlert = LIHAlertManager.getTextWithTwoButtonsAlert("Do you want to subscribe for the monthly newsletter?", buttonOneText: "Subscribe", buttonTwoText: "Cancel")
+        self.textWithTwoButtonsAlert?.initAlert(self.view)
+    }
+    func showBanner(sender: AnyObject) {
+        textWithTwoButtonsAlert?.show(nil, hidden: nil)
+    }
+```
+Call showBanner() function to show the banner. 
+Implement your view controller from LIHAlertDelegate.
+
+```Swift
+class ViewController: LIHAlertDelegate {
+    func buttonOnePressed(button: UIButton) {
+        self.textWithTwoButtonsAlert?.hideAlert({ () -> () in
+            self.successAlert?.show(nil, hidden: nil)
+        })
+        
+    }
+    func buttonTwoPressed(button: UIButton) {
+        self.textWithTwoButtonsAlert?.hideAlert(nil)
+    }
+}
+```
+
 
 ####2. Create a banner
