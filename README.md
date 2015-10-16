@@ -119,6 +119,7 @@ This alert contains a button along with a text. More suitable to use to alert im
 Call showBanner() function to show the banner. 
 Implement your view controller from LIHAlertDelegate.
 
+```Swift
 class ViewController: LIHAlertDelegate {
 
     func buttonPressed(button: UIButton) {
@@ -126,6 +127,7 @@ class ViewController: LIHAlertDelegate {
         self.textWithButtonAlert?.hideAlert(nil)
     }
 }
+```
 
 #####Text with two buttons Alert
 This alert contains two buttons along with a text.
@@ -159,5 +161,25 @@ class ViewController: LIHAlertDelegate {
 }
 ```
 
+
+#####Custom View Alert
+You can specify any view to act as the banner.
+
+```Swift
+    var customViewAlert: LIHAlert?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+	//In this case I am using an ImageView as the banner
+        let customView = UIImageView(frame: CGRectMake(0.0, 64.0, 100, 50))
+        customView.image = UIImage(named: "customViewImage")
+        self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView)
+        self.customViewAlert?.initAlert(self.view)
+
+    }
+    func showBanner(sender: AnyObject) {
+        self.customViewAlert?.show(nil, hidden: nil)
+    }
+```
 
 ####2. Create a banner
