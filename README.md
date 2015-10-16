@@ -14,3 +14,18 @@ Xcode 7+
 <li>Custom view banner</li>
 </UL>
 
+```Swift
+    var textAlert: LIHAlert?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.textAlert = LIHAlertManager.getTestAlert("Sample Message")
+        self.textAlert?.initAlert(self.view)
+    }
+
+    @IBAction func onButtonClick(sender: AnyObject) {
+        
+        self.textAlert?.show(nil, hidden: nil)
+    }
+```
