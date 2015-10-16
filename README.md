@@ -14,25 +14,3 @@ Xcode 7+
 <li>Custom view banner</li>
 </UL>
 
-### Usage
-**Text banner**
-
-
-'''
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let alertTextAlert: LIHAlert = LIHAlert()
-        alertTextAlert.alertType = LIHAlertType.Text
-        alertTextAlert.contentText = message
-        alertTextAlert.alertColor = UIColor(red: 102.0/255.0, green: 197.0/255.0, blue: 241.0/255.0, alpha: 1.0)
-        alertTextAlert.alertHeight = 50.0
-        alertTextAlert.alertAlpha = 1.0
-        alertTextAlert.autoCloseEnabled=true
-        alertTextAlert.contentTextColor = UIColor.whiteColor()
-        alertTextAlert.hasNavigationBar = true
-        alertTextAlert.paddingTop = 0.0
-        alertTextAlert.animationDuration = 0.35
-        alertTextAlert.autoCloseTimeInterval = 1.5
-    }
-'''
