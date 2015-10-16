@@ -16,9 +16,13 @@ Xcode 7+
 
 ###Usage
 
-####Text Banner
+####Predefined Banners
 
-#####Properties
+LIHAlert containes some predefined alerts for each Alert type. You can use following code snippets to use them. 
+
+#####Text Banner
+
+This is a banner with a text. This will close automatically in 1.5 seconds.
 
 ```Swift
     var textAlert: LIHAlert?
