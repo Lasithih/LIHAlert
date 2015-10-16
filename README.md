@@ -5,14 +5,12 @@ LIHAlert privides animated banners for iOS which is written using the apple's ne
 Xcode 7+
 
 ### Alert Types
-<UL>
-<li>Text banner</li>
-<li>Text with an ActivityIndicator</li>
-<li>Text with an icon</li>
-<li>Text with a button</li>
-<li>Text with two buttons</li>
-<li>Custom view banner</li>
-</UL>
+* Text banner
+* Text with an ActivityIndicator
+* Text with an icon
+* Text with a button
+* Text with two buttons
+* Custom view banner
 
 ###Usage
 
@@ -48,8 +46,6 @@ This is a banner with a text and an activity indicator. This is not an auto clos
 ```Swift
     var processingAlert: LIHAlert?
 
-var textAlert: LIHAlert?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,4 +70,4 @@ You can change the activity indicator style by using,
 ```
 
 
-####1. Create a banner
+####2. Create a banner
