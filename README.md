@@ -5,6 +5,9 @@ LIHAlert provides animated banners for iOS which is written using the apple's ne
 ### Requirements
 Xcode 7+
 
+### Installation
+Copy the LIHAlert folder into your project.
+
 ###Usage
 
 ####1. Predefined Banners
@@ -22,7 +25,6 @@ LIHAlert contains some predefined alerts for each Alert type. You can use follow
 
 ```Swift
     var textAlert: LIHAlert?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textAlert = LIHAlertManager.getTextAlert("Sample Message")
@@ -48,7 +50,6 @@ To customize the banner,
         textAlert.paddingTop = 0.0
         textAlert.animationDuration = 0.35
         textAlert.autoCloseTimeInterval = 1.5
-        
         self.textAlert?.initAlert(self.view)
 ```
 
@@ -79,7 +80,6 @@ This is a banner with a text and an activity indicator. This is not an auto clos
 
 ```Swift
     var processingAlert: LIHAlert?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.processingAlert = LIHAlertManager.getProcessingAlert("Fetching data...")
@@ -88,7 +88,6 @@ This is a banner with a text and an activity indicator. This is not an auto clos
     func showBanner(sender: AnyObject) {
         self.processingAlert?.show(nil, hidden: nil)
     }
-    
     override hideBanner(sender: AnyObject) {
         self.processingAlert?.hide(nil)
     }
@@ -105,7 +104,6 @@ This alert contains a button along with a text. More suitable for notifying impo
 
 ```Swift
     var textWithButtonAlert: LIHAlert?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert("You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")
@@ -120,7 +118,6 @@ Implement your view controller from LIHAlertDelegate.
 
 ```Swift
 class ViewController: LIHAlertDelegate {
-
     func buttonPressed(button: UIButton) {
         print(“You have pressed the button”)
         self.textWithButtonAlert?.hideAlert(nil)
@@ -154,7 +151,6 @@ class ViewController: LIHAlertDelegate {
         self.textWithTwoButtonsAlert?.hideAlert({ () -> () in
             self.successAlert?.show(nil, hidden: nil)
         })
-        
     }
     func buttonTwoPressed(button: UIButton) {
         self.textWithTwoButtonsAlert?.hideAlert(nil)
@@ -178,7 +174,6 @@ You can specify any view to act as the banner.
         customView.image = UIImage(named: "customViewImage")
         self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView)
         self.customViewAlert?.initAlert(self.view)
-
     }
     func showBanner(sender: AnyObject) {
         self.customViewAlert?.show(nil, hidden: nil)
@@ -209,13 +204,20 @@ You can specify any view to act as the banner.
 	}
 ```
 
-### Use the completion callback
+### Use the completion callbacks
 ```Swift
-	successAlert?.show({ () -> () in
+	//when showing an auto hiding banner
+	lihAlert?.show({ () -> () in
             	//alert showed
-            
             }, hidden: { () -> () in
                 //alert hidden
         })
-}
+        
+        //when hiding a banner
+        lihAlert?.hideAlert({ () -> () in
+            //Banner hidden
+        })
 ```
+###Demo Project
+The LIHAlert workspace contains a demo project, also used for development.
+
