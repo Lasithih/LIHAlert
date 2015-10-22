@@ -1,5 +1,5 @@
-<p align="center"><img src="http://1.bp.blogspot.com/-tioMl3Er4Kc/Viihi9aofNI/AAAAAAAACtk/guiuHUAb7iE/s1600/header.png"/></p>
-# LIHAlert
+<p align="center"><img src="http://1.bp.blogspot.com/--DGGUCz0SYs/ViilhKWINDI/AAAAAAAACtw/6_ORXcABLa0/s1600/header.png"/></p>
+
 LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0. 
 
 ### Requirements
@@ -17,10 +17,10 @@ Copy the LIHAlert folder into your project.
 * Text with a button
 * Text with two buttons
 * Custom view banner
-* 
+
 LIHAlert contains some predefined alerts for each Alert type. You can use following code snippets to use them. 
 
-#####Text Banner
+#####1. Text Banner
 <img src="http://3.bp.blogspot.com/-LLVpn6KrnNg/ViiaKmCHIqI/AAAAAAAACsw/13dVIUMG7E0/s300/TextBanner.gif" />
 
 ```Swift
@@ -53,11 +53,19 @@ To customize the banner,
         self.textAlert?.initAlert(self.view)
 ```
 
-#####Success Alert
+#####2. Success Alert
 <img src="http://2.bp.blogspot.com/-pMF5l-2VR0c/ViiaJ8bohOI/AAAAAAAACss/qFciyfThVUg/s300/Success.gif" />
 
 ```Swift
-    var successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
+    var successAlert: LIHAlert?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
+        self.successAlert?.initAlert(self.view)
+    }
+    func showBanner(sender: AnyObject) {
+        self.successAlert?.show(nil, hidden: nil)
+    }
 ```
 
 To change the icon,
@@ -65,14 +73,15 @@ To change the icon,
     successAlert?.icon = UIImage(named:"imageName")
 ```
 
-#####Error Alert
+#####3. Error Alert
 <img src="http://2.bp.blogspot.com/-UgMys4O6Jg8/ViiaJ88bTfI/AAAAAAAACsk/qqw1_bSHkpY/s300/Error.gif" />
 
+This can be used just like the **success alert**
 ```Swift
     var LIHAlertManager.getErrorAlert("Failed. Please try again")
 ```
 
-#####Processing Alert
+#####4. Processing Alert
 
 This is a banner with a text and an activity indicator. This is not an auto close banner. You have to hide it when the process is finished.
 
@@ -98,7 +107,7 @@ To change the activity indicator style,
     processingAlert?.activityIndicatorStyle = UIActivityIndicatorViewStyle.WhiteLarge
 ```
 
-#####Text with a button Alert
+#####5. Text with a button Alert
 This alert contains a button along with a text. More suitable for notifying important messages to user.
 <img src="http://2.bp.blogspot.com/-lrD_IGv93yE/ViiaKyqoRVI/AAAAAAAACs4/ggqDlP9E-YY/s300/TextWithButton.gif" />
 
@@ -125,7 +134,7 @@ class ViewController: LIHAlertDelegate {
 }
 ```
 
-#####Text with two buttons Alert
+#####6. Text with two buttons Alert
 This alert contains two buttons along with a text.
 
 <img src="http://3.bp.blogspot.com/-1pXYpVNoNz0/ViiaLcHSqnI/AAAAAAAACtI/NQjV1Pe9ACs/s300/TextWithTwoButtons.gif" />
@@ -159,7 +168,7 @@ class ViewController: LIHAlertDelegate {
 ```
 
 
-#####Custom View Alert
+#####7. Custom View Alert
 You can specify any view to act as the banner.
 
 <img src="http://4.bp.blogspot.com/-lHReuTyaJ8A/ViiaJyAiEfI/AAAAAAAACso/Q9A-X3MNcTo/s300/CustomView.gif" />
