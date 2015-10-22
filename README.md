@@ -56,6 +56,7 @@ To change the icon,
 #####Processing Alert
 
 This is a banner with a text and an activity indicator. This is not an auto close banner. You have to hide it when the process is finished.
+
 <img src="http://3.bp.blogspot.com/-ASkTzpFIuSU/ViiaK2_mSYI/AAAAAAAACs8/6stjXecZWqI/s300/TextWithLoading.gif" />
 
 ```Swift
@@ -111,6 +112,7 @@ class ViewController: LIHAlertDelegate {
 
 #####Text with two buttons Alert
 This alert contains two buttons along with a text.
+
 <img src="http://3.bp.blogspot.com/-1pXYpVNoNz0/ViiaLcHSqnI/AAAAAAAACtI/NQjV1Pe9ACs/s300/TextWithTwoButtons.gif" />
 
 ```Swift
@@ -145,7 +147,7 @@ class ViewController: LIHAlertDelegate {
 
 #####Custom View Alert
 You can specify any view to act as the banner.
-<img src="http://4.bp.blogspot.com/-lHReuTyaJ8A/ViiaJyAiEfI/AAAAAAAACso/Q9A-X3MNcTo/s1600/CustomView.gif" />
+<img src="http://4.bp.blogspot.com/-lHReuTyaJ8A/ViiaJyAiEfI/AAAAAAAACso/Q9A-X3MNcTo/s300/CustomView.gif" />
 
 ```Swift
     var customViewAlert: LIHAlert?
