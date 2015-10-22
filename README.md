@@ -1,3 +1,4 @@
+<p align="center"><img src="http://1.bp.blogspot.com/-tioMl3Er4Kc/Viihi9aofNI/AAAAAAAACtk/guiuHUAb7iE/s1600/header.png"/></p>
 # LIHAlert
 LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0. 
 
@@ -33,6 +34,23 @@ LIHAlert contains some predefined alerts for each Alert type. You can use follow
 ```
 Call showBanner() function to show the banner
 
+To customize the banner,
+```Swift
+    	self.textAlert = LIHAlertManager.getTextAlert("Sample Message")
+        self.textAlert?.alertColor = UIColor.yellowColor()
+        textAlert.contentText = message
+        textAlert.alertColor = UIColor(red: 102.0/255.0, green: 197.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        textAlert.alertHeight = 50.0
+        textAlert.alertAlpha = 1.0
+        textAlert.autoCloseEnabled=true
+        textAlert.contentTextColor = UIColor.whiteColor()
+        textAlert.hasNavigationBar = true
+        textAlert.paddingTop = 0.0
+        textAlert.animationDuration = 0.35
+        textAlert.autoCloseTimeInterval = 1.5
+        
+        self.textAlert?.initAlert(self.view)
+```
 
 #####Success Alert
 <img src="http://2.bp.blogspot.com/-pMF5l-2VR0c/ViiaJ8bohOI/AAAAAAAACss/qFciyfThVUg/s300/Success.gif" />
@@ -147,6 +165,7 @@ class ViewController: LIHAlertDelegate {
 
 #####Custom View Alert
 You can specify any view to act as the banner.
+
 <img src="http://4.bp.blogspot.com/-lHReuTyaJ8A/ViiaJyAiEfI/AAAAAAAACso/Q9A-X3MNcTo/s300/CustomView.gif" />
 
 ```Swift
@@ -168,3 +187,35 @@ You can specify any view to act as the banner.
 
 ####2. Create a banner
 
+```Swift
+	let alertTextAlert: LIHAlert = LIHAlert()
+        alertTextAlert.alertType = LIHAlertType.Text
+        alertTextAlert.contentText = message
+        alertTextAlert.alertColor = UIColor(red: 102.0/255.0, green: 197.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        alertTextAlert.alertHeight = 50.0
+        alertTextAlert.alertAlpha = 1.0
+        alertTextAlert.autoCloseEnabled=true
+        alertTextAlert.contentTextColor = UIColor.whiteColor()
+        alertTextAlert.hasNavigationBar = true
+        alertTextAlert.paddingTop = 0.0
+        alertTextAlert.animationDuration = 0.35
+        alertTextAlert.autoCloseTimeInterval = 1.5
+```
+
+#####LIHALertType
+```Swift
+	enum LIHAlertType {
+    		case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons
+	}
+```
+
+### Use the completion callback
+```Swift
+	successAlert?.show({ () -> () in
+            	//alert showed
+            
+            }, hidden: { () -> () in
+                //alert hidden
+        })
+}
+```
