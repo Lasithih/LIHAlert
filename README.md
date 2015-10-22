@@ -4,23 +4,20 @@ LIHAlert provides animated banners for iOS which is written using the apple's ne
 ### Requirements
 Xcode 7+
 
-### Alert Types
+###Usage
+
+####1. Predefined Banners
 * Text banner
 * Text with an ActivityIndicator
 * Text with an icon
 * Text with a button
 * Text with two buttons
 * Custom view banner
-
-###Usage
-
-####1. Predefined Banners
-
+* 
 LIHAlert contains some predefined alerts for each Alert type. You can use following code snippets to use them. 
 
 #####Text Banner
-
-This is a banner with a text. This will close automatically in 1.5 seconds.
+<img src="http://3.bp.blogspot.com/-LLVpn6KrnNg/ViiaKmCHIqI/AAAAAAAACsw/13dVIUMG7E0/s300/TextBanner.gif" />
 
 ```Swift
     var textAlert: LIHAlert?
@@ -36,9 +33,30 @@ This is a banner with a text. This will close automatically in 1.5 seconds.
 ```
 Call showBanner() function to show the banner
 
+
+#####Success Alert
+<img src="http://2.bp.blogspot.com/-pMF5l-2VR0c/ViiaJ8bohOI/AAAAAAAACss/qFciyfThVUg/s300/Success.gif" />
+
+```Swift
+    var successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
+```
+
+To change the icon,
+```Swift
+    successAlert?.icon = UIImage(named:"imageName")
+```
+
+#####Error Alert
+<img src="http://2.bp.blogspot.com/-UgMys4O6Jg8/ViiaJ88bTfI/AAAAAAAACsk/qqw1_bSHkpY/s300/Error.gif" />
+
+```Swift
+    var LIHAlertManager.getErrorAlert("Failed. Please try again")
+```
+
 #####Processing Alert
 
 This is a banner with a text and an activity indicator. This is not an auto close banner. You have to hide it when the process is finished.
+<img src="http://3.bp.blogspot.com/-ASkTzpFIuSU/ViiaK2_mSYI/AAAAAAAACs8/6stjXecZWqI/s300/TextWithLoading.gif" />
 
 ```Swift
     var processingAlert: LIHAlert?
@@ -62,47 +80,9 @@ To change the activity indicator style,
     processingAlert?.activityIndicatorStyle = UIActivityIndicatorViewStyle.WhiteLarge
 ```
 
-#####Success Alert
-This is a banner with a text and an icon. This will close automatically in 1.5 seconds.
-
-```Swift
-    var successAlert: LIHAlert?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
-        self.successAlert?.initAlert(self.view)
-    }
-    func showBanner(sender: AnyObject) {
-        self.successAlert?.show(nil, hidden: nil)
-    }
-```
-Call showBanner() function to show the banner.
-
-To change the icon,
-```Swift
-    successAlert?.icon = UIImage(named:"imageName")
-```
-
-#####Error Alert
-Behavior of this alert is identical to Success Alert accept banner color, text and icon.
-
-```Swift
-    var errorAlert: LIHAlert?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
-        self.errorAlert?.initAlert(self.view)
-    }
-    func showBanner(sender: AnyObject) {
-        self.errorAlert?.show(nil, hidden: nil)
-    }
-```
-Call showBanner() function to show the banner
-
 #####Text with a button Alert
-This alert contains a button along with a text. More suitable to use to alert important messages to user.
+This alert contains a button along with a text. More suitable for notifying important messages to user.
+<img src="http://2.bp.blogspot.com/-lrD_IGv93yE/ViiaKyqoRVI/AAAAAAAACs4/ggqDlP9E-YY/s300/TextWithButton.gif" />
 
 ```Swift
     var textWithButtonAlert: LIHAlert?
@@ -131,6 +111,7 @@ class ViewController: LIHAlertDelegate {
 
 #####Text with two buttons Alert
 This alert contains two buttons along with a text.
+<img src="http://3.bp.blogspot.com/-1pXYpVNoNz0/ViiaLcHSqnI/AAAAAAAACtI/NQjV1Pe9ACs/s300/TextWithTwoButtons.gif" />
 
 ```Swift
     var textWithTwoButtonsAlert: LIHAlert?
@@ -164,6 +145,7 @@ class ViewController: LIHAlertDelegate {
 
 #####Custom View Alert
 You can specify any view to act as the banner.
+<img src="http://4.bp.blogspot.com/-lHReuTyaJ8A/ViiaJyAiEfI/AAAAAAAACso/Q9A-X3MNcTo/s1600/CustomView.gif" />
 
 ```Swift
     var customViewAlert: LIHAlert?
@@ -183,3 +165,4 @@ You can specify any view to act as the banner.
 ```
 
 ####2. Create a banner
+
