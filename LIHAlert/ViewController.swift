@@ -71,7 +71,9 @@ class ViewController: UIViewController {
     
     @IBAction func hideProcessiongAlert(sender: AnyObject) {
         
-        self.processingAlert?.hideAlert(nil)
+        self.processingAlert?.hideAlert({ () -> () in
+            //
+        })
     }
     
     @IBAction func showCustomView(sender: AnyObject) {
@@ -83,6 +85,7 @@ class ViewController: UIViewController {
     @IBAction func showSuccessAlert(sender: AnyObject) {
         
         self.successAlert?.show(nil, hidden: nil)
+        self.successAlert?.alertColor = UIColor.brownColor()
     }
     
     @IBAction func showErrorAlert(sender: AnyObject) {

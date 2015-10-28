@@ -26,7 +26,6 @@ class LIHAlertManager {
         alertTextAlert.paddingTop = 0.0
         alertTextAlert.animationDuration = 0.35
         alertTextAlert.autoCloseTimeInterval = 1.5
-        
         return alertTextAlert
     }
     

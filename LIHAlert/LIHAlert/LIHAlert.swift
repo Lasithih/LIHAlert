@@ -595,6 +595,7 @@ class LIHAlert: NSObject {
             mainView.hidden = false
             self.activityIndicatorLoading?.startAnimating()
             self.overlayView?.hidden = false
+            
             UIView.animateWithDuration(self.animationDuration, animations: { () -> Void in
                 
                 if self.hasNavigationBar {
