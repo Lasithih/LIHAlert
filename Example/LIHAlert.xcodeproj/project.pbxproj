@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58BBF2C6A5915CD7259E33F5 /* Pods_LIHAlert_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83833044EB49847F94408F1 /* Pods_LIHAlert_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		815D43444366E650A37C8D64 /* Pods_LIHAlert_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83833044EB49847F94408F1 /* Pods_LIHAlert_Example.framework */; };
 		92B5F3E8F63B2FF2DF64C6EC /* Pods_LIHAlert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD89CC07E542DD75DB72A05 /* Pods_LIHAlert_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +40,7 @@
 		607FACE51AFB9204008FA782 /* LIHAlert_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LIHAlert_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		782D1F081C94AF4400979756 /* Pods_LIHAlert_Example.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_LIHAlert_Example.framework; path = "Pods/../build/Debug-iphoneos/Pods_LIHAlert_Example.framework"; sourceTree = "<group>"; };
 		B399F41F7033219897E44F51 /* Pods-LIHAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LIHAlert_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LIHAlert_Example/Pods-LIHAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BB6299220FE9B87465DDF941 /* Pods-LIHAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LIHAlert_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LIHAlert_Tests/Pods-LIHAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BFD89CC07E542DD75DB72A05 /* Pods_LIHAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LIHAlert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58BBF2C6A5915CD7259E33F5 /* Pods_LIHAlert_Example.framework in Frameworks */,
+				815D43444366E650A37C8D64 /* Pods_LIHAlert_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +84,7 @@
 		44953BF90C3D14EFA9C43423 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				782D1F081C94AF4400979756 /* Pods_LIHAlert_Example.framework */,
 				E83833044EB49847F94408F1 /* Pods_LIHAlert_Example.framework */,
 				BFD89CC07E542DD75DB72A05 /* Pods_LIHAlert_Tests.framework */,
 			);
@@ -489,11 +491,16 @@
 			baseConfigurationReference = 08F4588B219281F02C10344D /* Pods-LIHAlert_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangola.LIHAlert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -502,11 +509,16 @@
 			baseConfigurationReference = B399F41F7033219897E44F51 /* Pods-LIHAlert_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangola.LIHAlert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

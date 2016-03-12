@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  LIHAlert
 //
-//  Created by Lasith Hettiarachchi on 03/13/2016.
-//  Copyright (c) 2016 Lasith Hettiarachchi. All rights reserved.
+//  Created by Lasith Hettiarachchi on 9/4/15.
+//  Copyright (c) 2015 Lasith Hettiarachchi. All rights reserved.
 //
 
 import UIKit
