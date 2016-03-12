@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'LIHAlert_Example', :exclusive => true do
+  pod 'LIHAlert', :path => '../'
+end
+
+target 'LIHAlert_Tests', :exclusive => true do
+  pod 'LIHAlert', :path => '../'
+
+  
+end

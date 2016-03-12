@@ -1,0 +1,14 @@
+PODS:
+  - LIHAlert (0.1.0)
+
+DEPENDENCIES:
+  - LIHAlert (from `../`)
+
+EXTERNAL SOURCES:
+  LIHAlert:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LIHAlert: cdeb7b382e4623b27738f0ac3fb1e4436b775707
+
+COCOAPODS: 0.39.0
