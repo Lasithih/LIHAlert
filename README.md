@@ -9,6 +9,11 @@
 
 ### Usage
 
+Import the module using
+```Swift
+    import LIHAlert
+```
+
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ####1. Predefined Banners
