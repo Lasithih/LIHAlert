@@ -1,5 +1,7 @@
 # LIHAlert
 
+#####LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0. 
+
 [![CI Status](http://img.shields.io/travis/Lasith Hettiarachchi/LIHAlert.svg?style=flat)](https://travis-ci.org/Lasith Hettiarachchi/LIHAlert)
 [![Version](https://img.shields.io/cocoapods/v/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
 [![License](https://img.shields.io/cocoapods/l/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
