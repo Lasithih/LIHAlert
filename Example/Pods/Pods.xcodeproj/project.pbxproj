@@ -7,39 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		065F02CE5CA043B37E0A7DDEFCD39AD1 /* LIHAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DB329054E4A7FBFD2F09C4F14B41B0 /* LIHAlert-dummy.m */; };
 		0FB562A51B5CFD8129E534FA4E1A9B53 /* Pods-LIHAlert_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CFB856CE0EEE6DBBEA8590FE4968791 /* Pods-LIHAlert_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10563B33B716705F0A299CE6718E8978 /* LIHAlert.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A3DA3D9FE256341D4BE420BFDC12434D /* LIHAlert.bundle */; };
 		1ABD33B1F0F8E98ACA0EE73FD47C4E31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		470ED552C28AF76F56D2F08E11D9DE41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		58737BBFB5D2A3B8A291D706BF03757D /* Pods-LIHAlert_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D844A85754A71902F46DAA5F01A43 /* Pods-LIHAlert_Example-dummy.m */; };
-		79D173EB324512DF0901BEFC6F44E27D /* LIHAlert.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A3DA3D9FE256341D4BE420BFDC12434D /* LIHAlert.bundle */; };
-		9623FC69CE6ED1BECC345C588E178B39 /* LIHAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DB329054E4A7FBFD2F09C4F14B41B0 /* LIHAlert-dummy.m */; };
-		A3A2717BDE824A13914954EFB62BA73B /* LIHAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70ACDC6C0E729C381EEE08A1B7198CCB /* LIHAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A76D3061D948EAF7C6259D09CCDDAB57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		832D8B0360AAABC2986CB3A673D89703 /* LIHAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A6D904D6DB65BF004F1B34B0929CE /* LIHAlertManager.swift */; };
+		C3A83B6ED126630AEA69CD3A47A7640A /* LIHAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD154A5F2EEA335718664DAF07C19AD /* LIHAlert.swift */; };
+		C6AF6FFADFB75E2EB3CB460D7C559804 /* LIHAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70ACDC6C0E729C381EEE08A1B7198CCB /* LIHAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CBC313A6DADB46E557E3074511DA91F6 /* Pods-LIHAlert_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3302193BED40C5AA3841DCE939FB87F /* Pods-LIHAlert_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F650BAF9F5C13B52F6286BF58A981285 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457BDFD24D516A1B4593781E27E938F /* ReplaceMe.swift */; };
+		F249E9D73A4C83E014D0ABE784035446 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		FF004E0D9ECBFEDE038A9CB9035720A2 /* Pods-LIHAlert_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF694AD6E330D7668623DF1D79894C0 /* Pods-LIHAlert_Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		349FD200C1F0E44F1BEAF4B2A4699985 /* PBXContainerItemProxy */ = {
+		75B157D3D61A6A4CC830D7535EF0F177 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2C92EF46342EB2736B349F7DB674B0F3;
+			remoteGlobalIDString = 925C3D4636F65C47209E24162D92DA19;
 			remoteInfo = "LIHAlert-LIHAlert";
 		};
 		A76DE4B5B11F6D567683CA15E2B01F8E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AFC4E23633BFBB3521CF53E1465128D0;
+			remoteGlobalIDString = 3AF80DCDEC1C10E8AF20CDB3C7710D07;
 			remoteInfo = LIHAlert;
 		};
 		BD988BCEC760F628C93A70E2CECB1B8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AFC4E23633BFBB3521CF53E1465128D0;
+			remoteGlobalIDString = 3AF80DCDEC1C10E8AF20CDB3C7710D07;
 			remoteInfo = LIHAlert;
 		};
 /* End PBXContainerItemProxy section */
@@ -48,7 +49,6 @@
 		013A891C97EFA330C50776B9371922FD /* Pods-LIHAlert_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LIHAlert_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		0350F066481AB4402796BDF71CB4941E /* Pods-LIHAlert_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LIHAlert_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0E2D844A85754A71902F46DAA5F01A43 /* Pods-LIHAlert_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LIHAlert_Example-dummy.m"; sourceTree = "<group>"; };
-		1457BDFD24D516A1B4593781E27E938F /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		1A1E42C7FF7EA2FCD74F5D666EB08373 /* LIHAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LIHAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C7D7226D3F698D4A2D14F6132F9094 /* Pods_LIHAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LIHAlert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF9B65FC54272052BB4235377460DFC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +66,7 @@
 		8D0D1739E13E99D98CF95472D85689DF /* Pods-LIHAlert_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LIHAlert_Example-resources.sh"; sourceTree = "<group>"; };
 		910478824FF19CA2E6608C57590C541C /* Pods-LIHAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LIHAlert_Example.modulemap"; sourceTree = "<group>"; };
 		954A8B67A382E08E53D3D898F816B364 /* Pods-LIHAlert_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LIHAlert_Example-frameworks.sh"; sourceTree = "<group>"; };
+		9AD154A5F2EEA335718664DAF07C19AD /* LIHAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LIHAlert.swift; sourceTree = "<group>"; };
 		A0B2E4B0FBC984D50148783F099C4D71 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3DA3D9FE256341D4BE420BFDC12434D /* LIHAlert.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LIHAlert.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F80E17FB1CC5FCC6FE23A629CDBF68 /* Pods_LIHAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LIHAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +79,7 @@
 		D7E48201B2073CB00B33BFD57AF2A732 /* Pods-LIHAlert_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LIHAlert_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DBFADA7E91579992146AD641928AF11B /* Pods-LIHAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LIHAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		EB3AACE210797280E107ADC0DDFF374E /* Pods-LIHAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LIHAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		FF5A6D904D6DB65BF004F1B34B0929CE /* LIHAlertManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LIHAlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,13 +91,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10CE0BE1745EB212882713E39D64C9FB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2CAFD13291CB7B1B5CCC6A1EE368BC78 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,11 +99,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D524E276AF7EA9E165007F109683482 /* Frameworks */ = {
+		80DF17987F12FA6579689AF9F9B973BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A76D3061D948EAF7C6259D09CCDDAB57 /* Foundation.framework in Frameworks */,
+				F249E9D73A4C83E014D0ABE784035446 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A230B8C561CF0D6E22EFBE5D3472D36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +138,7 @@
 		38BD613E8DEA8CC95C2DEFC31B2E7C69 /* LIHAlert */ = {
 			isa = PBXGroup;
 			children = (
-				FD35A49528F1EDB3474A37EC212A1216 /* Pod */,
+				B46FC00AD5EDB22DC64728F1F2F68C04 /* Pod */,
 				B0A7D3589CAB7F491F4CE56B38B09A0D /* Support Files */,
 			);
 			name = LIHAlert;
@@ -149,6 +151,15 @@
 				38BD613E8DEA8CC95C2DEFC31B2E7C69 /* LIHAlert */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		63BFF32072A4CEE07A49611A9219B6A5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9AD154A5F2EEA335718664DAF07C19AD /* LIHAlert.swift */,
+				FF5A6D904D6DB65BF004F1B34B0929CE /* LIHAlertManager.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		74EA58CFA9F358107506955C3BDA1642 /* Pods-LIHAlert_Tests */ = {
@@ -189,14 +200,6 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		8D7C81164C73E23A86BD330B540EFF8D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				1457BDFD24D516A1B4593781E27E938F /* ReplaceMe.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		B0A7D3589CAB7F491F4CE56B38B09A0D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +225,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B46FC00AD5EDB22DC64728F1F2F68C04 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				63BFF32072A4CEE07A49611A9219B6A5 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,14 +249,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		FD35A49528F1EDB3474A37EC212A1216 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				8D7C81164C73E23A86BD330B540EFF8D /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -257,6 +260,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72B64CC3414AA3EB85F348BBB5C97AE9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AF6FFADFB75E2EB3CB460D7C559804 /* LIHAlert-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1EF9499102F0FA4D5D0CB00AFD52B2F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,34 +276,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E8AD5D0596973131F40B0BCA37F9C4FF /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A3A2717BDE824A13914954EFB62BA73B /* LIHAlert-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2C92EF46342EB2736B349F7DB674B0F3 /* LIHAlert-LIHAlert */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D70F691B7A11B9B518B015B62E16C028 /* Build configuration list for PBXNativeTarget "LIHAlert-LIHAlert" */;
-			buildPhases = (
-				C0AC2898AF8B5BECE6CAB387949C4823 /* Sources */,
-				10CE0BE1745EB212882713E39D64C9FB /* Frameworks */,
-				A09155DE9B49ED3A2184BF0EF2E5B341 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "LIHAlert-LIHAlert";
-			productName = "LIHAlert-LIHAlert";
-			productReference = A3DA3D9FE256341D4BE420BFDC12434D /* LIHAlert.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		369ACDF49DA57C289A8B911B0F3C0744 /* Pods-LIHAlert_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7C4EB14A48E7E3E88C9D0327E01B066 /* Build configuration list for PBXNativeTarget "Pods-LIHAlert_Example" */;
@@ -311,6 +297,42 @@
 			productReference = B3F80E17FB1CC5FCC6FE23A629CDBF68 /* Pods_LIHAlert_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		3AF80DCDEC1C10E8AF20CDB3C7710D07 /* LIHAlert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C9A6AD4CB99EEF815FFDAA95FCED6D8 /* Build configuration list for PBXNativeTarget "LIHAlert" */;
+			buildPhases = (
+				99228C8E6F982861D95D1E27ABC82152 /* Sources */,
+				80DF17987F12FA6579689AF9F9B973BA /* Frameworks */,
+				950A305D1A7E89A16C72FD3BF98FD17B /* Resources */,
+				72B64CC3414AA3EB85F348BBB5C97AE9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A8BC51760E7BB20345959B8C243AE48 /* PBXTargetDependency */,
+			);
+			name = LIHAlert;
+			productName = LIHAlert;
+			productReference = 1A1E42C7FF7EA2FCD74F5D666EB08373 /* LIHAlert.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		925C3D4636F65C47209E24162D92DA19 /* LIHAlert-LIHAlert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EFFD2284A7F3374D2378031E6432928 /* Build configuration list for PBXNativeTarget "LIHAlert-LIHAlert" */;
+			buildPhases = (
+				8E7E6BE0C1B1D3A42398AEF9CE0A4C62 /* Sources */,
+				8A230B8C561CF0D6E22EFBE5D3472D36 /* Frameworks */,
+				33DC945C9650992027AB1813EDC4BF97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LIHAlert-LIHAlert";
+			productName = "LIHAlert-LIHAlert";
+			productReference = A3DA3D9FE256341D4BE420BFDC12434D /* LIHAlert.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		AF271A218D6C427538FAFED0AEBA71E9 /* Pods-LIHAlert_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10528D7EDD8369FB7CB0A00A21CCE489 /* Build configuration list for PBXNativeTarget "Pods-LIHAlert_Tests" */;
@@ -327,25 +349,6 @@
 			name = "Pods-LIHAlert_Tests";
 			productName = "Pods-LIHAlert_Tests";
 			productReference = 21C7D7226D3F698D4A2D14F6132F9094 /* Pods_LIHAlert_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		AFC4E23633BFBB3521CF53E1465128D0 /* LIHAlert */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 431C55670A12400AAE6BB1DBEAB730D1 /* Build configuration list for PBXNativeTarget "LIHAlert" */;
-			buildPhases = (
-				74F8C3606DB2E72F3CA68E4CA2BCC837 /* Sources */,
-				9D524E276AF7EA9E165007F109683482 /* Frameworks */,
-				5FE3DFA8CEAABAD7A7147901FBBB68C6 /* Resources */,
-				E8AD5D0596973131F40B0BCA37F9C4FF /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1B2D809B6BC6187994EFAB608A1345C0 /* PBXTargetDependency */,
-			);
-			name = LIHAlert;
-			productName = LIHAlert;
-			productReference = 1A1E42C7FF7EA2FCD74F5D666EB08373 /* LIHAlert.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -369,8 +372,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFC4E23633BFBB3521CF53E1465128D0 /* LIHAlert */,
-				2C92EF46342EB2736B349F7DB674B0F3 /* LIHAlert-LIHAlert */,
+				3AF80DCDEC1C10E8AF20CDB3C7710D07 /* LIHAlert */,
+				925C3D4636F65C47209E24162D92DA19 /* LIHAlert-LIHAlert */,
 				369ACDF49DA57C289A8B911B0F3C0744 /* Pods-LIHAlert_Example */,
 				AF271A218D6C427538FAFED0AEBA71E9 /* Pods-LIHAlert_Tests */,
 			);
@@ -378,18 +381,18 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5FE3DFA8CEAABAD7A7147901FBBB68C6 /* Resources */ = {
+		33DC945C9650992027AB1813EDC4BF97 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79D173EB324512DF0901BEFC6F44E27D /* LIHAlert.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A09155DE9B49ED3A2184BF0EF2E5B341 /* Resources */ = {
+		950A305D1A7E89A16C72FD3BF98FD17B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10563B33B716705F0A299CE6718E8978 /* LIHAlert.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,19 +407,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74F8C3606DB2E72F3CA68E4CA2BCC837 /* Sources */ = {
+		8E7E6BE0C1B1D3A42398AEF9CE0A4C62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9623FC69CE6ED1BECC345C588E178B39 /* LIHAlert-dummy.m in Sources */,
-				F650BAF9F5C13B52F6286BF58A981285 /* ReplaceMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0AC2898AF8B5BECE6CAB387949C4823 /* Sources */ = {
+		99228C8E6F982861D95D1E27ABC82152 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				065F02CE5CA043B37E0A7DDEFCD39AD1 /* LIHAlert-dummy.m in Sources */,
+				C3A83B6ED126630AEA69CD3A47A7640A /* LIHAlert.swift in Sources */,
+				832D8B0360AAABC2986CB3A673D89703 /* LIHAlertManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,22 +435,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1B2D809B6BC6187994EFAB608A1345C0 /* PBXTargetDependency */ = {
+		1A8BC51760E7BB20345959B8C243AE48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "LIHAlert-LIHAlert";
-			target = 2C92EF46342EB2736B349F7DB674B0F3 /* LIHAlert-LIHAlert */;
-			targetProxy = 349FD200C1F0E44F1BEAF4B2A4699985 /* PBXContainerItemProxy */;
+			target = 925C3D4636F65C47209E24162D92DA19 /* LIHAlert-LIHAlert */;
+			targetProxy = 75B157D3D61A6A4CC830D7535EF0F177 /* PBXContainerItemProxy */;
 		};
 		96535455E6FAF145579EBA6544CB890F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LIHAlert;
-			target = AFC4E23633BFBB3521CF53E1465128D0 /* LIHAlert */;
+			target = 3AF80DCDEC1C10E8AF20CDB3C7710D07 /* LIHAlert */;
 			targetProxy = BD988BCEC760F628C93A70E2CECB1B8D /* PBXContainerItemProxy */;
 		};
 		AAE6029501288BD268EB58C6E453713C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LIHAlert;
-			target = AFC4E23633BFBB3521CF53E1465128D0 /* LIHAlert */;
+			target = 3AF80DCDEC1C10E8AF20CDB3C7710D07 /* LIHAlert */;
 			targetProxy = A76DE4B5B11F6D567683CA15E2B01F8E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -509,12 +513,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		17233B824349B36431043A9B560C2ED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4D0264EA985EBAB16C7A4A7AF71EDB7 /* LIHAlert.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = LIHAlert;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
 		};
 		22B67A7618FA3775602682F7312A47D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -547,19 +563,7 @@
 			};
 			name = Debug;
 		};
-		392A569E3CC500A07D0760AEE9499EF0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4D0264EA985EBAB16C7A4A7AF71EDB7 /* LIHAlert.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = LIHAlert;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		40B56F2853B8D93EC08A45179279D8D2 /* Debug */ = {
+		2FAFD1571053DF27E830FC6F3415B544 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B4D0264EA985EBAB16C7A4A7AF71EDB7 /* LIHAlert.xcconfig */;
 			buildSettings = {
@@ -573,10 +577,39 @@
 				GCC_PREFIX_HEADER = "Target Support Files/LIHAlert/LIHAlert-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/LIHAlert/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LIHAlert/LIHAlert.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lasithih.LIHAlert;
+				PRODUCT_NAME = LIHAlert;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		386102BAC15C461459C8A9521153B1F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4D0264EA985EBAB16C7A4A7AF71EDB7 /* LIHAlert.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LIHAlert/LIHAlert-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LIHAlert/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/LIHAlert/LIHAlert.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lasithih.LIHAlert;
 				PRODUCT_NAME = LIHAlert;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -617,7 +650,7 @@
 			};
 			name = Release;
 		};
-		4961BB28F448F4A182D6D3B69323ECE4 /* Debug */ = {
+		4CF1682F5BC466A0AB45F13471B2364A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B4D0264EA985EBAB16C7A4A7AF71EDB7 /* LIHAlert.xcconfig */;
 			buildSettings = {
@@ -627,7 +660,7 @@
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Debug;
+			name = Release;
 		};
 		4F2F1AFB3D0EC42D1F370580C3FFBDDD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -692,39 +725,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		839BFC618071FBC56A998A9166B9EF61 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4D0264EA985EBAB16C7A4A7AF71EDB7 /* LIHAlert.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LIHAlert/LIHAlert-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LIHAlert/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LIHAlert/LIHAlert.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = LIHAlert;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -747,20 +753,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		431C55670A12400AAE6BB1DBEAB730D1 /* Build configuration list for PBXNativeTarget "LIHAlert" */ = {
+		7C9A6AD4CB99EEF815FFDAA95FCED6D8 /* Build configuration list for PBXNativeTarget "LIHAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				40B56F2853B8D93EC08A45179279D8D2 /* Debug */,
-				839BFC618071FBC56A998A9166B9EF61 /* Release */,
+				386102BAC15C461459C8A9521153B1F3 /* Debug */,
+				2FAFD1571053DF27E830FC6F3415B544 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D70F691B7A11B9B518B015B62E16C028 /* Build configuration list for PBXNativeTarget "LIHAlert-LIHAlert" */ = {
+		9EFFD2284A7F3374D2378031E6432928 /* Build configuration list for PBXNativeTarget "LIHAlert-LIHAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4961BB28F448F4A182D6D3B69323ECE4 /* Debug */,
-				392A569E3CC500A07D0760AEE9499EF0 /* Release */,
+				17233B824349B36431043A9B560C2ED7 /* Debug */,
+				4CF1682F5BC466A0AB45F13471B2364A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

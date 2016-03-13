@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-enum LIHAlertType {
+public enum LIHAlertType {
     case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons
 }
 
-@objc protocol LIHAlertDelegate {
+@objc public protocol LIHAlertDelegate {
     
     optional func buttonPressed(button: UIButton)
     optional func buttonOnePressed(button: UIButton)
@@ -21,31 +21,31 @@ enum LIHAlertType {
     
 }
 
-class LIHAlert: NSObject {
+public class LIHAlert: NSObject {
     
     //delegates
-    var delegate: LIHAlertDelegate?
+    public var delegate: LIHAlertDelegate?
     
     private var overlayView: UIView?
     
     //Title
-    var titleLabel: UILabel?
-    var titleText: String = "Sample Title" {
+    public var titleLabel: UILabel?
+    public var titleText: String = "Sample Title" {
         didSet {
             self.titleLabel?.text = self.titleText
         }
     }
-    var titleTextColor: UIColor = UIColor.blackColor(){
+    public var titleTextColor: UIColor = UIColor.blackColor(){
         didSet {
             self.titleLabel?.textColor = self.titleTextColor
         }
     }
-    var titleTextFont: UIFont?{
+    public var titleTextFont: UIFont?{
         didSet {
             self.titleLabel?.font = self.titleTextFont
         }
     }
-    var titleTextFontSize: CGFloat? {
+    public var titleTextFontSize: CGFloat? {
         didSet {
             if let fontName = self.titleLabel?.font.fontName, size = self.titleTextFontSize {
                 self.titleLabel?.font = UIFont(name: fontName, size: size)
@@ -55,25 +55,25 @@ class LIHAlert: NSObject {
     
     
     //Content Text
-    var contentLabel: UILabel?
-    var contentText: String = "Sample Content"{
+    public var contentLabel: UILabel?
+    public var contentText: String = "Sample Content"{
         didSet {
             self.contentLabel?.text = self.contentText
         }
     }
-    var contentTextColor: UIColor = UIColor.blackColor(){
+    public var contentTextColor: UIColor = UIColor.blackColor(){
         didSet {
             self.contentLabel?.textColor = self.contentTextColor
         }
     }
-    var contentTextFont: UIFont?{
+    public var contentTextFont: UIFont?{
         didSet {
             self.contentLabel?.font = self.contentTextFont
         }
     }
     
     //TextWithLoading
-    var activityIndicatorStyle: UIActivityIndicatorViewStyle = UIActivityIndicatorViewStyle.White {
+    public var activityIndicatorStyle: UIActivityIndicatorViewStyle = UIActivityIndicatorViewStyle.White {
         didSet {
             self.activityIndicatorLoading?.activityIndicatorViewStyle = self.activityIndicatorStyle
         }
@@ -81,53 +81,53 @@ class LIHAlert: NSObject {
     private var activityIndicatorLoading: UIActivityIndicatorView?
     
     //Icon
-    var iconImageView: UIImageView?
-    var icon: UIImage? {
+    public var  iconImageView: UIImageView?
+    public var  icon: UIImage? {
         didSet{
             self.iconImageView?.image = self.icon
         }
     }
     
     //OneButton
-    var button_textWithButton: UIButton?
-    var buttonText: String = "Dismiss" {
+    public var  button_textWithButton: UIButton?
+    public var  buttonText: String = "Dismiss" {
         didSet {
             self.button_textWithButton?.setTitle(self.buttonText, forState: UIControlState.Normal)
         }
     }
-    var buttonColor: UIColor = UIColor.blueColor() {
+    public var  buttonColor: UIColor = UIColor.blueColor() {
         didSet {
             self.button_textWithButton?.backgroundColor = self.buttonColor
         }
     }
-    var buttonTextColor: UIColor = UIColor.whiteColor() {
+    public var  buttonTextColor: UIColor = UIColor.whiteColor() {
         didSet {
             self.button_textWithButton?.setTitleColor(self.buttonTextColor, forState: UIControlState.Normal)
         }
     }
-    var buttonFont: UIFont? {
+    public var  buttonFont: UIFont? {
         didSet {
             if let font = self.buttonFont {
                 self.button_textWithButton?.titleLabel?.font = font
             }
         }
     }
-    var buttonBordercolor: UIColor = UIColor.whiteColor() {
+    public var  buttonBordercolor: UIColor = UIColor.whiteColor() {
         didSet {
             self.button_textWithButton?.layer.borderColor = self.buttonBordercolor.CGColor
         }
     }
-    var buttonBorderWidth: CGFloat = 1.0 {
+    public var  buttonBorderWidth: CGFloat = 1.0 {
         didSet {
             self.button_textWithButton?.layer.borderWidth = self.buttonBorderWidth
         }
     }
-    var buttonCornerRadius: CGFloat = 3.0 {
+    public var  buttonCornerRadius: CGFloat = 3.0 {
         didSet {
             self.button_textWithButton?.layer.cornerRadius = self.buttonCornerRadius
         }
     }
-    var buttonWidth: CGFloat? {
+    public var  buttonWidth: CGFloat? {
         didSet {
             if let width = self.buttonWidth {
                 self.button_textWithButton?.frame.size.width = width
@@ -137,80 +137,80 @@ class LIHAlert: NSObject {
     
     //TWO BUTTONS
         //ButtonOne
-    var buttonOne_textWithButton: UIButton?
-    var buttonOneText: String = "Dismiss" {
+    public var  buttonOne_textWithButton: UIButton?
+    public var  buttonOneText: String = "Dismiss" {
         didSet {
             self.buttonOne_textWithButton?.setTitle(self.buttonOneText, forState: UIControlState.Normal)
         }
     }
-    var buttonOneColor: UIColor = UIColor.blueColor() {
+    public var  buttonOneColor: UIColor = UIColor.blueColor() {
         didSet {
             self.buttonOne_textWithButton?.backgroundColor = self.buttonOneColor
         }
     }
-    var buttonOneTextColor: UIColor = UIColor.whiteColor() {
+    public var  buttonOneTextColor: UIColor = UIColor.whiteColor() {
         didSet {
             self.buttonOne_textWithButton?.setTitleColor(self.buttonOneTextColor, forState: UIControlState.Normal)
         }
     }
-    var buttonOneFont: UIFont? {
+    public var  buttonOneFont: UIFont? {
         didSet {
             if let font = self.buttonOneFont {
                 self.buttonOne_textWithButton?.titleLabel?.font = font
             }
         }
     }
-    var buttonOneBordercolor: UIColor = UIColor.whiteColor() {
+    public var  buttonOneBordercolor: UIColor = UIColor.whiteColor() {
         didSet {
             self.buttonOne_textWithButton?.layer.borderColor = self.buttonOneBordercolor.CGColor
         }
     }
-    var buttonOneBorderWidth: CGFloat = 1.0 {
+    public var  buttonOneBorderWidth: CGFloat = 1.0 {
         didSet {
             self.buttonOne_textWithButton?.layer.borderWidth = self.buttonOneBorderWidth
         }
     }
-    var buttonOneCornerRadius: CGFloat = 3.0 {
+    public var  buttonOneCornerRadius: CGFloat = 3.0 {
         didSet {
             self.buttonOne_textWithButton?.layer.cornerRadius = self.buttonOneCornerRadius
         }
     }
     
         //ButtonTwo
-    var buttonTwo_textWithButton: UIButton?
-    var buttonTwoText: String = "Dismiss" {
+    public var  buttonTwo_textWithButton: UIButton?
+    public var  buttonTwoText: String = "Dismiss" {
         didSet {
             self.buttonTwo_textWithButton?.setTitle(self.buttonTwoText, forState: UIControlState.Normal)
         }
     }
-    var buttonTwoColor: UIColor = UIColor.blueColor() {
+    public var  buttonTwoColor: UIColor = UIColor.blueColor() {
         didSet {
             self.buttonTwo_textWithButton?.backgroundColor = self.buttonTwoColor
         }
     }
-    var buttonTwoTextColor: UIColor = UIColor.whiteColor() {
+    public var  buttonTwoTextColor: UIColor = UIColor.whiteColor() {
         didSet {
             self.buttonTwo_textWithButton?.setTitleColor(self.buttonTwoTextColor, forState: UIControlState.Normal)
         }
     }
-    var buttonTwoFont: UIFont? {
+    public var  buttonTwoFont: UIFont? {
         didSet {
             if let font = self.buttonTwoFont {
                 self.buttonTwo_textWithButton?.titleLabel?.font = font
             }
         }
     }
-    var buttonTwoBordercolor: UIColor = UIColor.whiteColor() {
+    public var  buttonTwoBordercolor: UIColor = UIColor.whiteColor() {
         didSet {
             self.buttonTwo_textWithButton?.layer.borderColor = self.buttonTwoBordercolor.CGColor
         }
     }
-    var buttonTwoBorderWidth: CGFloat = 1.0 {
+    public var  buttonTwoBorderWidth: CGFloat = 1.0 {
         didSet {
             self.buttonTwo_textWithButton?.layer.borderWidth = self.buttonTwoBorderWidth
         }
     }
-    var buttonTwoCornerRadius: CGFloat = 3.0 {
+    public var  buttonTwoCornerRadius: CGFloat = 3.0 {
         didSet {
             self.buttonTwo_textWithButton?.layer.cornerRadius = self.buttonTwoCornerRadius
         }
@@ -219,14 +219,14 @@ class LIHAlert: NSObject {
     
     
     //AlertView
-    var alertView: UIView? {
+    public var  alertView: UIView? {
         didSet {
             if let alv = self.alertView {
                 self.viewMain = alv
             }
         }
     }
-    var alertColor: UIColor = UIColor.grayColor() {
+    public var  alertColor: UIColor = UIColor.grayColor() {
         didSet {
             if let mainView = self.viewMain {
                 mainView.backgroundColor = self.alertColor
@@ -234,31 +234,31 @@ class LIHAlert: NSObject {
             
         }
     }
-    var alertAlpha: CGFloat = 1.0 {
+    public var  alertAlpha: CGFloat = 1.0 {
         didSet {
             if let mainView = self.viewMain {
                 mainView.alpha = self.alertAlpha
             }
         }
     }
-    var alertHeight:CGFloat = 75.0 {
+    public var  alertHeight:CGFloat = 75.0 {
         didSet {
             self.overlayView?.frame.size.height = self.alertHeight
         }
     }
     
-    var paddingLeft: CGFloat = 0.0
-    var paddingTop: CGFloat = 0.0
+    public var  paddingLeft: CGFloat = 0.0
+    public var  paddingTop: CGFloat = 0.0
     
-    var animationDuration: NSTimeInterval = 0.5
+    public var  animationDuration: NSTimeInterval = 0.5
     
-    var alertType: LIHAlertType = LIHAlertType.Text
+    public var  alertType: LIHAlertType = LIHAlertType.Text
     
     
-    var autoCloseEnabled: Bool = true
-    var autoCloseTimeInterval: Double = 3.0
+    public var  autoCloseEnabled: Bool = true
+    public var  autoCloseTimeInterval: Double = 3.0
     
-    var hasNavigationBar: Bool = false
+    public var  hasNavigationBar: Bool = false
     
     private var navBarHeight: CGFloat = 44.0 + 20.0
     private var viewMain: UIView?
@@ -272,7 +272,7 @@ class LIHAlert: NSObject {
     private var topConstraintToOverlayView: NSLayoutConstraint?
     
     
-    func initAlert(container: UIView) {
+    public func initAlert(container: UIView) {
         
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("orientationChanged:"), name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -610,7 +610,7 @@ class LIHAlert: NSObject {
         }
     }
     
-    func hideAlert(completionHandler:(()->())?){
+    public func hideAlert(completionHandler:(()->())?){
         
         UIView.animateWithDuration(self.animationDuration, animations: { () -> Void in
             
@@ -636,7 +636,7 @@ class LIHAlert: NSObject {
         
     }
     
-    func show(showed:(()->())?, hidden:(()->())?) {
+    public func show(showed:(()->())?, hidden:(()->())?) {
         
         cancel_delay(self.scheduledAutoClose)
         
@@ -662,9 +662,9 @@ class LIHAlert: NSObject {
     
     
     //dispatch
-    typealias dispatch_cancelable_closure = (cancel : Bool) -> ()
+    public typealias dispatch_cancelable_closure = (cancel : Bool) -> ()
     
-    func delayFunc(time:NSTimeInterval, closure:()->()) ->  dispatch_cancelable_closure? {
+    public func delayFunc(time:NSTimeInterval, closure:()->()) ->  dispatch_cancelable_closure? {
         
         func dispatch_later(clsr:()->()) {
             dispatch_after(
@@ -699,7 +699,7 @@ class LIHAlert: NSObject {
         return cancelableClosure;
     }
     
-    func cancel_delay(closure:dispatch_cancelable_closure?) {
+    public func cancel_delay(closure:dispatch_cancelable_closure?) {
         if closure != nil {
             closure!(cancel: true)
         }
@@ -707,7 +707,7 @@ class LIHAlert: NSObject {
     
     
     //Orientation
-    func orientationChanged(notification: NSNotification) {
+    public func orientationChanged(notification: NSNotification) {
         
         if self.hasNavigationBar {
             
@@ -725,7 +725,7 @@ class LIHAlert: NSObject {
     
     //MARK - Events
     
-    func buttonPressed(sender: UIButton) {
+    public func buttonPressed(sender: UIButton) {
         
         if sender.tag == 10 {
             
@@ -744,7 +744,7 @@ class LIHAlert: NSObject {
         }
     }
     
-    func buttonTouchDown(sender: UIButton) {
+    public func buttonTouchDown(sender: UIButton) {
         
         if sender.tag == 10 {
             
