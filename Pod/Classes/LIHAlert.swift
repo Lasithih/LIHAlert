@@ -275,7 +275,7 @@ public class LIHAlert: NSObject {
     public func initAlert(container: UIView) {
         
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("orientationChanged:"), name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LIHAlert.orientationChanged(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         //Create OverlayView and add to Container(self.view)
         self.overlayView = UIView()
@@ -504,8 +504,8 @@ public class LIHAlert: NSObject {
             self.button_textWithButton?.titleLabel?.font = font
         }
         self.button_textWithButton?.tag = 10
-        self.button_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.button_textWithButton?.addTarget(self, action: "buttonTouchDown:", forControlEvents: UIControlEvents.TouchDown)
+        self.button_textWithButton?.addTarget(self, action: #selector(LIHAlertDelegate.buttonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        self.button_textWithButton?.addTarget(self, action: #selector(LIHAlert.buttonTouchDown(_:)), forControlEvents: UIControlEvents.TouchDown)
         if let button = self.button_textWithButton {
             
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -552,8 +552,8 @@ public class LIHAlert: NSObject {
             self.buttonOne_textWithButton?.titleLabel?.font = font
         }
         self.buttonOne_textWithButton?.tag = 20
-        self.buttonOne_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.buttonOne_textWithButton?.addTarget(self, action: "buttonTouchDown:", forControlEvents: UIControlEvents.TouchDown)
+        self.buttonOne_textWithButton?.addTarget(self, action: #selector(LIHAlertDelegate.buttonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonOne_textWithButton?.addTarget(self, action: #selector(LIHAlert.buttonTouchDown(_:)), forControlEvents: UIControlEvents.TouchDown)
         
         //Button two
         self.buttonTwo_textWithButton = UIButton()
@@ -567,8 +567,8 @@ public class LIHAlert: NSObject {
             self.buttonTwo_textWithButton?.titleLabel?.font = font
         }
         self.buttonTwo_textWithButton?.tag = 30
-        self.buttonTwo_textWithButton?.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.buttonTwo_textWithButton?.addTarget(self, action: "buttonTouchDown:", forControlEvents: UIControlEvents.TouchDown)
+        self.buttonTwo_textWithButton?.addTarget(self, action: #selector(LIHAlertDelegate.buttonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonTwo_textWithButton?.addTarget(self, action: #selector(LIHAlert.buttonTouchDown(_:)), forControlEvents: UIControlEvents.TouchDown)
         
         if let buttonOne = self.buttonOne_textWithButton, buttonTwo = self.buttonTwo_textWithButton {
             
