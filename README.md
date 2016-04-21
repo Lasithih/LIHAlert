@@ -226,6 +226,17 @@ You can specify any view to act as the banner.
             //Banner hidden
         })
 ```
+
+### Known Issues
+##### 1. Top margin
+In some projects the alert may appear with a margin on top. Hopefully this will be fixed in the next release. Until then use the following solution.
+###### Solution
+Even the navigation bar is there, set it to false.
+```Swift
+alert.hasNavigationBar = false
+```
+
+
 ###Demo Project
 The LIHAlert workspace contains a demo project, also used for development.
 
