@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Iw-Z7-dvz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Iw-Z7-dvz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -179,6 +180,49 @@
             </objects>
             <point key="canvasLocation" x="1507" y="490"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Uu1-n2-Wg2">
+            <objects>
+                <viewController storyboardIdentifier="CustomViewVc" id="3xg-rg-9hD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RiR-wo-QdV"/>
+                        <viewControllerLayoutGuide type="bottom" id="xlt-wa-Yp7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4n5-9Q-v1A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heF-uo-3S9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customViewImage" translatesAutoresizingMaskIntoConstraints="NO" id="nyb-ag-6LM">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nyb-ag-6LM" firstAttribute="leading" secondItem="heF-uo-3S9" secondAttribute="leading" id="V1O-pn-fTo"/>
+                                    <constraint firstAttribute="width" secondItem="heF-uo-3S9" secondAttribute="height" multiplier="475:267" id="VB7-nh-SzT"/>
+                                    <constraint firstItem="nyb-ag-6LM" firstAttribute="top" secondItem="heF-uo-3S9" secondAttribute="top" id="bd4-ZO-YGW"/>
+                                    <constraint firstAttribute="trailing" secondItem="nyb-ag-6LM" secondAttribute="trailing" id="efN-jv-5Ky"/>
+                                    <constraint firstAttribute="bottom" secondItem="nyb-ag-6LM" secondAttribute="bottom" id="yuZ-Gk-fHc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="heF-uo-3S9" firstAttribute="top" secondItem="RiR-wo-QdV" secondAttribute="bottom" id="4Td-pc-fQs"/>
+                            <constraint firstAttribute="trailing" secondItem="heF-uo-3S9" secondAttribute="trailing" id="PPw-fa-Bhi"/>
+                            <constraint firstItem="heF-uo-3S9" firstAttribute="leading" secondItem="4n5-9Q-v1A" secondAttribute="leading" id="faQ-Dx-uzH"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n9z-AU-va1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="446"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bs7-hh-5gA">
             <objects>
@@ -199,4 +243,7 @@
             <point key="canvasLocation" x="726" y="1151"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="customViewImage" width="950" height="534"/>
+    </resources>
 </document>

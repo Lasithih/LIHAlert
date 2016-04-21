@@ -26,7 +26,6 @@ public class LIHAlert: NSObject {
     //delegates
     public var delegate: LIHAlertDelegate?
     
-    private var overlayView: UIView?
     
     //Title
     public var titleLabel: UILabel?
@@ -78,7 +77,6 @@ public class LIHAlert: NSObject {
             self.activityIndicatorLoading?.activityIndicatorViewStyle = self.activityIndicatorStyle
         }
     }
-    private var activityIndicatorLoading: UIActivityIndicatorView?
     
     //Icon
     public var  iconImageView: UIImageView?
@@ -231,7 +229,6 @@ public class LIHAlert: NSObject {
             if let mainView = self.viewMain {
                 mainView.backgroundColor = self.alertColor
             }
-            
         }
     }
     public var  alertAlpha: CGFloat = 1.0 {
@@ -249,23 +246,21 @@ public class LIHAlert: NSObject {
     
     public var  paddingLeft: CGFloat = 0.0
     public var  paddingTop: CGFloat = 0.0
-    
     public var  animationDuration: NSTimeInterval = 0.5
-    
     public var  alertType: LIHAlertType = LIHAlertType.Text
-    
-    
     public var  autoCloseEnabled: Bool = true
     public var  autoCloseTimeInterval: Double = 3.0
-    
     public var  hasNavigationBar: Bool = false
     
+    //private variables
     private var navBarHeight: CGFloat = 44.0 + 20.0
     private var viewMain: UIView?
     private var imgViewIcon: UIImageView?
     private var lblContentText: UILabel?
     private var lblTitle: UILabel?
     private var buttonHighlightAlpha: CGFloat = 0.5
+    private var overlayView: UIView?
+    private var activityIndicatorLoading: UIActivityIndicatorView?
     
     //validation
     private var scheduledAutoClose: dispatch_cancelable_closure?
@@ -279,15 +274,14 @@ public class LIHAlert: NSObject {
         
         //Create OverlayView and add to Container(self.view)
         self.overlayView = UIView()
-        //self.overlayView?.userInteractionEnabled = false
         self.overlayView?.clipsToBounds = true
         self.overlayView?.hidden = true
-        //self.overlayView?.backgroundColor = UIColor.blackColor()//ATTENTION
         var overlayHeight = self.alertHeight
         var topMargin: CGFloat = 0.0
         
         if let customView = self.alertView {
             overlayHeight = customView.frame.size.height
+            self.alertHeight = customView.frame.size.height
         }
         if self.hasNavigationBar {
             topMargin = self.navBarHeight
@@ -309,7 +303,6 @@ public class LIHAlert: NSObject {
         if self.alertType == LIHAlertType.Custom {
             self.configTypeCustom()
             
-            
         } else if self.alertType == LIHAlertType.Text {
             self.mainViewConfig()
             self.configTypeText()
@@ -317,22 +310,37 @@ public class LIHAlert: NSObject {
         } else if self.alertType == LIHAlertType.TextWithLoading {
             self.mainViewConfig()
             self.configTypeTextWithLoading()
+            
         } else if self.alertType == LIHAlertType.TextWithIcon {
             self.mainViewConfig()
             self.configTypeTextWithIcon()
+            
         } else if self.alertType == LIHAlertType.TextWithButton {
             self.mainViewConfig()
             self.configTypeTextWithButton()
+            
         } else if self.alertType == LIHAlertType.TextWithTwoButtons {
             self.mainViewConfig()
             self.configTypeTextWithTwoButtons()
         }
         
-        if let mainview = self.viewMain {
-            if let overlay = self.overlayView {
-                overlay.addSubview(mainview)
-            }
-        }
+//        if let mainview = self.viewMain {
+//            if let overlay = self.overlayView {
+//                overlay.addSubview(mainview)
+//            }
+//        }
+//        
+        
+        
+//        if let alertV = self.alertView where self.alertType == LIHAlertType.Custom {
+//            
+//            let top = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0.0)
+//            let bottom = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0.0)
+//            let leftCon = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0.0)
+//            let rightCon = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0.0)
+//            alertV.translatesAutoresizingMaskIntoConstraints = false
+//            self.overlayView?.addConstraints([top, leftCon, rightCon, bottom])
+//        }
     }
     
     private func mainViewConfig() {
@@ -364,6 +372,24 @@ public class LIHAlert: NSObject {
             
             alertV.frame.origin.y = alertV.frame.size.height * -1
             self.viewMain = alertV
+            
+            if let mainView = self.viewMain {
+                
+                self.overlayView?.addSubview(mainView)
+                
+                let heightCon = NSLayoutConstraint(item: mainView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: self.alertHeight)
+                let bottomCon = NSLayoutConstraint(item: mainView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0.0)
+                let leftCon = NSLayoutConstraint(item: mainView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0.0)
+                let rightCon = NSLayoutConstraint(item: mainView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0.0)
+                
+                self.overlayView?.addConstraints([heightCon, bottomCon, leftCon, rightCon])
+                
+                mainView.translatesAutoresizingMaskIntoConstraints = false
+                mainView.backgroundColor = self.alertColor
+                mainView.alpha = self.alertAlpha
+                mainView.clipsToBounds = true
+                
+            }
             
         } else {
             let width = UIScreen.mainScreen().bounds.width

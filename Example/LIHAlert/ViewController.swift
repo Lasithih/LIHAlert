@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     //MARK: - Private Methods
     func initAlerts() {
         
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CustomViewVc")
         
         let width = UIScreen.mainScreen().bounds.width
         let height = 534.0 / 950.0 * width
@@ -86,7 +87,6 @@ class ViewController: UIViewController {
     @IBAction func showSuccessAlert(sender: AnyObject) {
         
         self.successAlert?.show(nil, hidden: nil)
-        self.successAlert?.alertColor = UIColor.brownColor()
     }
     
     @IBAction func showErrorAlert(sender: AnyObject) {
