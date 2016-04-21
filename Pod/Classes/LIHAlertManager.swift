@@ -30,6 +30,26 @@ public class LIHAlertManager {
     }
     
     
+    public static func getTextWithTitleAlert(title: String, message:String) -> LIHAlert {
+        
+        let alertTextAlert: LIHAlert = LIHAlert()
+        alertTextAlert.alertType = LIHAlertType.TextWithTitle
+        alertTextAlert.contentText = message
+        alertTextAlert.titleText = title
+        alertTextAlert.alertColor = UIColor.orangeColor()
+        alertTextAlert.alertHeight = 90.0
+        alertTextAlert.alertAlpha = 1.0
+        alertTextAlert.autoCloseEnabled=true
+        alertTextAlert.contentTextColor = UIColor.whiteColor()
+        alertTextAlert.titleTextColor = UIColor.whiteColor()
+        alertTextAlert.hasNavigationBar = true
+        alertTextAlert.paddingTop = 0.0
+        alertTextAlert.animationDuration = 0.35
+        alertTextAlert.autoCloseTimeInterval = 2.5
+        return alertTextAlert
+    }
+    
+    
     public static func getProcessingAlert(message: String) -> LIHAlert {
         
         let processingAlert: LIHAlert = LIHAlert()

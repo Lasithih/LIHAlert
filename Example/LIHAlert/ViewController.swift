@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var errorAlert: LIHAlert?
     var textWithButtonAlert: LIHAlert?
     var textWithTwoButtonsAlert: LIHAlert?
+    var textWithTitleAlert: LIHAlert?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +34,7 @@ class ViewController: UIViewController {
     func initAlerts() {
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CustomViewVc")
-        
-        let width = UIScreen.mainScreen().bounds.width
-        let height = 534.0 / 950.0 * width
-        let customView = UIImageView(frame: CGRectMake(0.0, 64.0, width, height))
-        customView.image = UIImage(named: "customViewImage")
-        self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView)
+        self.customViewAlert = LIHAlertManager.getCustomViewAlert(vc!.view.viewWithTag(5)!)
         self.customViewAlert?.initAlert(self.view)
         
         self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert("You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")
@@ -56,8 +52,11 @@ class ViewController: UIViewController {
         self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
         self.errorAlert?.initAlert(self.view)
         
-        self.textAlert = LIHAlertManager.getTextAlert("Sample Message")
+        self.textAlert = LIHAlertManager.getTextAlert("Sample Message Sample Message")
         self.textAlert?.initAlert(self.view)
+        
+        self.textWithTitleAlert = LIHAlertManager.getTextWithTitleAlert("This is The Title", message: "This is a sample message.This is a sample message.This is a sample message.This is a sample message.This is a sample message.")
+        self.textWithTitleAlert?.initAlert(self.view)
     }
 
     //MARK: - Events
@@ -104,6 +103,11 @@ class ViewController: UIViewController {
         
         self.textWithTwoButtonsAlert?.show(nil, hidden: nil)
         self.textWithTwoButtonsAlert?.delegate = self
+    }
+    
+    @IBAction func showTextWithTitle(sender: AnyObject) {
+        
+        self.textWithTitleAlert?.show(nil, hidden: nil)
     }
     
     

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public enum LIHAlertType {
-    case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons
+    case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons, TextWithTitle
 }
 
 @objc public protocol LIHAlertDelegate {
@@ -51,6 +51,11 @@ public class LIHAlert: NSObject {
             }
         }
     }
+    public var titleTextNumberOfLines: Int = 1 {
+        didSet {
+            self.titleLabel?.numberOfLines = self.titleTextNumberOfLines
+        }
+    }
     
     
     //Content Text
@@ -68,6 +73,11 @@ public class LIHAlert: NSObject {
     public var contentTextFont: UIFont?{
         didSet {
             self.contentLabel?.font = self.contentTextFont
+        }
+    }
+    public var contentTextNumberOfLines: Int = 2 {
+        didSet {
+            self.contentLabel?.numberOfLines = self.contentTextNumberOfLines
         }
     }
     
@@ -322,25 +332,12 @@ public class LIHAlert: NSObject {
         } else if self.alertType == LIHAlertType.TextWithTwoButtons {
             self.mainViewConfig()
             self.configTypeTextWithTwoButtons()
+            
+        } else if self.alertType == LIHAlertType.TextWithTitle {
+            self.mainViewConfig()
+            self.configTypeTextWithTitle()
         }
-        
-//        if let mainview = self.viewMain {
-//            if let overlay = self.overlayView {
-//                overlay.addSubview(mainview)
-//            }
-//        }
-//        
-        
-        
-//        if let alertV = self.alertView where self.alertType == LIHAlertType.Custom {
-//            
-//            let top = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0.0)
-//            let bottom = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0.0)
-//            let leftCon = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0.0)
-//            let rightCon = NSLayoutConstraint(item: alertV, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.overlayView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0.0)
-//            alertV.translatesAutoresizingMaskIntoConstraints = false
-//            self.overlayView?.addConstraints([top, leftCon, rightCon, bottom])
-//        }
+
     }
     
     private func mainViewConfig() {
@@ -412,6 +409,81 @@ public class LIHAlert: NSObject {
             self.contentLabel?.text = self.contentText
             self.contentLabel?.textColor = self.contentTextColor
             self.contentLabel?.font = self.contentTextFont
+            self.contentLabel?.numberOfLines = self.contentTextNumberOfLines
+            self.contentLabel?.textAlignment = NSTextAlignment.Center
+            
+            if let label = self.contentLabel {
+                label.translatesAutoresizingMaskIntoConstraints = false
+                self.viewMain?.addSubview(label)
+                
+                let centerX = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: self.paddingLeft)
+                let centerY = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: self.paddingTop)
+                let left = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: self.paddingLeft+20)
+                let right = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -1*20)
+                
+                label.translatesAutoresizingMaskIntoConstraints = false
+                self.viewMain?.addConstraints([centerY,centerX,left,right])
+            }
+        }
+        
+    }
+    
+    private func configTypeTextWithTitle() {
+        
+        if let _ = self.viewMain {
+            
+            self.contentLabel = UILabel()
+            self.contentLabel?.text = self.contentText
+            self.contentLabel?.textColor = self.contentTextColor
+            self.contentLabel?.font = self.contentTextFont
+            self.contentLabel?.numberOfLines = self.contentTextNumberOfLines
+            
+            self.titleLabel = UILabel()
+            self.titleLabel?.text = self.titleText
+            self.titleLabel?.textColor = self.titleTextColor
+            self.titleLabel?.font = self.titleTextFont
+            self.titleLabel?.numberOfLines = self.titleTextNumberOfLines
+            
+            if let label = self.titleLabel {
+                label.translatesAutoresizingMaskIntoConstraints = false
+                self.viewMain?.addSubview(label)
+                
+                if self.titleTextFont == nil {
+                    let fontSize = label.font.pointSize
+                    label.font = UIFont.boldSystemFontOfSize(fontSize)
+                }
+                
+                let left = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: self.paddingLeft+20)
+                let right = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -1*20)
+                let top = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: self.paddingTop+10)
+                
+                label.translatesAutoresizingMaskIntoConstraints = false
+                self.viewMain?.addConstraints([left,right,top])
+            }
+            
+            if let label = self.contentLabel {
+                label.translatesAutoresizingMaskIntoConstraints = false
+                self.viewMain?.addSubview(label)
+                
+                let left = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: self.paddingLeft+20)
+                let right = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.viewMain, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -1*20)
+                let top = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.titleLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 5)
+                
+                label.translatesAutoresizingMaskIntoConstraints = false
+                self.viewMain?.addConstraints([left,right,top])
+            }
+        }
+        
+    }
+    
+    private func configTypeTextWithLoading() {
+        
+        if let _ = self.viewMain {
+            
+            self.contentLabel = UILabel()
+            self.contentLabel?.text = self.contentText
+            self.contentLabel?.textColor = self.contentTextColor
+            self.contentLabel?.font = self.contentTextFont
             
             if let label = self.contentLabel {
                 label.translatesAutoresizingMaskIntoConstraints = false
@@ -423,15 +495,6 @@ public class LIHAlert: NSObject {
                 label.translatesAutoresizingMaskIntoConstraints = false
                 self.viewMain?.addConstraints([centerY,centerX])
             }
-        }
-            
-    }
-    
-    private func configTypeTextWithLoading() {
-        
-        if let _ = self.viewMain {
-            
-            self.configTypeText()
             
             self.activityIndicatorLoading = UIActivityIndicatorView(activityIndicatorStyle: self.activityIndicatorStyle)
             if let loading = self.activityIndicatorLoading {

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,7 +21,7 @@
                                 <rect key="frame" x="10" y="248" width="300" height="290"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vke-LF-dbV">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="145" height="40"/>
                                         <color key="backgroundColor" red="0.5490196078431373" green="0.28235294117647058" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="uhd-Oj-IkL"/>
@@ -133,25 +132,44 @@
                                             <action selector="showTextWithTwoButtons:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lGZ-cV-HWf"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcx-XQ-a1a">
+                                        <rect key="frame" x="155" y="0.0" width="145" height="40"/>
+                                        <color key="backgroundColor" red="0.54901960780000003" green="0.28235294119999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="AGC-4h-BOO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Text With Title">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showTextWithTitle:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zn7-Kb-c2u"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="X2M-Ye-GA2" firstAttribute="top" secondItem="vke-LF-dbV" secondAttribute="bottom" constant="10" id="1op-9e-3di"/>
-                                    <constraint firstAttribute="trailing" secondItem="vke-LF-dbV" secondAttribute="trailing" id="3BR-np-d3r"/>
                                     <constraint firstItem="e6V-hY-e5V" firstAttribute="top" secondItem="46p-Cn-oGm" secondAttribute="bottom" constant="10" id="4gq-8h-30W"/>
                                     <constraint firstAttribute="bottom" secondItem="Sl8-Kr-g8H" secondAttribute="bottom" id="6dd-1M-VPg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jcx-XQ-a1a" secondAttribute="trailing" id="8hV-F0-eBX"/>
                                     <constraint firstItem="46p-Cn-oGm" firstAttribute="leading" secondItem="X2M-Ye-GA2" secondAttribute="trailing" constant="10" id="9ri-jS-Gqv"/>
                                     <constraint firstItem="vke-LF-dbV" firstAttribute="top" secondItem="xfh-wh-orf" secondAttribute="top" id="C5j-cp-Jo5"/>
                                     <constraint firstItem="rlY-Ya-3e5" firstAttribute="leading" secondItem="xfh-wh-orf" secondAttribute="leading" id="EZq-2N-1Hp"/>
                                     <constraint firstItem="46p-Cn-oGm" firstAttribute="centerY" secondItem="X2M-Ye-GA2" secondAttribute="centerY" id="Fu5-ct-T0i"/>
+                                    <constraint firstItem="46p-Cn-oGm" firstAttribute="top" secondItem="Jcx-XQ-a1a" secondAttribute="bottom" constant="10" id="GTB-av-opX"/>
                                     <constraint firstItem="rlY-Ya-3e5" firstAttribute="top" secondItem="KDk-He-Olr" secondAttribute="bottom" constant="10" id="IT2-Hx-X0D"/>
                                     <constraint firstAttribute="trailing" secondItem="46p-Cn-oGm" secondAttribute="trailing" id="KVf-1T-4qk"/>
                                     <constraint firstItem="KDk-He-Olr" firstAttribute="height" secondItem="MAh-uA-ADJ" secondAttribute="height" id="LEp-yW-uKx"/>
+                                    <constraint firstItem="Jcx-XQ-a1a" firstAttribute="leading" secondItem="vke-LF-dbV" secondAttribute="trailing" constant="10" id="MUq-lc-DVQ"/>
                                     <constraint firstItem="vke-LF-dbV" firstAttribute="leading" secondItem="xfh-wh-orf" secondAttribute="leading" id="Ndc-PP-CYz"/>
                                     <constraint firstItem="46p-Cn-oGm" firstAttribute="height" secondItem="X2M-Ye-GA2" secondAttribute="height" id="OqF-18-nYT"/>
                                     <constraint firstAttribute="trailing" secondItem="KDk-He-Olr" secondAttribute="trailing" id="SNC-RY-fHT"/>
+                                    <constraint firstItem="Jcx-XQ-a1a" firstAttribute="height" secondItem="vke-LF-dbV" secondAttribute="height" id="SW6-2l-cSZ"/>
                                     <constraint firstItem="e6V-hY-e5V" firstAttribute="leading" secondItem="xfh-wh-orf" secondAttribute="leading" id="VAr-46-80h"/>
                                     <constraint firstAttribute="trailing" secondItem="e6V-hY-e5V" secondAttribute="trailing" id="Vmh-1h-rSz"/>
+                                    <constraint firstItem="Jcx-XQ-a1a" firstAttribute="width" secondItem="vke-LF-dbV" secondAttribute="width" id="WPw-cv-CfP"/>
                                     <constraint firstItem="Sl8-Kr-g8H" firstAttribute="top" secondItem="rlY-Ya-3e5" secondAttribute="bottom" constant="10" id="WSn-wm-e3o"/>
                                     <constraint firstItem="Sl8-Kr-g8H" firstAttribute="leading" secondItem="xfh-wh-orf" secondAttribute="leading" id="Zzr-mF-cwu"/>
                                     <constraint firstItem="KDk-He-Olr" firstAttribute="leading" secondItem="MAh-uA-ADJ" secondAttribute="trailing" constant="10" id="cYb-Tk-3ae"/>
@@ -201,8 +219,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="0M6-X3-bmJ"/>
                                     <constraint firstItem="nyb-ag-6LM" firstAttribute="leading" secondItem="heF-uo-3S9" secondAttribute="leading" id="V1O-pn-fTo"/>
-                                    <constraint firstAttribute="width" secondItem="heF-uo-3S9" secondAttribute="height" multiplier="475:267" id="VB7-nh-SzT"/>
                                     <constraint firstItem="nyb-ag-6LM" firstAttribute="top" secondItem="heF-uo-3S9" secondAttribute="top" id="bd4-ZO-YGW"/>
                                     <constraint firstAttribute="trailing" secondItem="nyb-ag-6LM" secondAttribute="trailing" id="efN-jv-5Ky"/>
                                     <constraint firstAttribute="bottom" secondItem="nyb-ag-6LM" secondAttribute="bottom" id="yuZ-Gk-fHc"/>
