@@ -437,6 +437,7 @@ public class LIHAlert: NSObject {
             self.contentLabel?.textColor = self.contentTextColor
             self.contentLabel?.font = self.contentTextFont
             self.contentLabel?.numberOfLines = self.contentTextNumberOfLines
+            self.contentLabel?.textAlignment = NSTextAlignment.Justified
             
             self.titleLabel = UILabel()
             self.titleLabel?.text = self.titleText

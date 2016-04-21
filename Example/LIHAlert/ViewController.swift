@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         self.textAlert = LIHAlertManager.getTextAlert("Sample Message Sample Message")
         self.textAlert?.initAlert(self.view)
         
-        self.textWithTitleAlert = LIHAlertManager.getTextWithTitleAlert("This is The Title", message: "This is a sample message.This is a sample message.This is a sample message.This is a sample message.This is a sample message.")
+        self.textWithTitleAlert = LIHAlertManager.getTextWithTitleAlert("This is The Title", message: "This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.")
         self.textWithTitleAlert?.initAlert(self.view)
     }
 

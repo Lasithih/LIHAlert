@@ -7,28 +7,6 @@
 [![License](https://img.shields.io/cocoapods/l/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
 [![Platform](https://img.shields.io/cocoapods/p/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
 
-
-
-###Demo Project
-The LIHAlert workspace contains a demo project, also used for development.
-
-### Requirements
-Xcode 7+
-
-### Installation
-
-LIHAlert is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "LIHAlert"
-```
-
-or
-
-Copy the LIHAlert folder into your project.
-
-
 ### Usage
 
 Import the module using
@@ -38,18 +16,16 @@ Import the module using
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-#### Templates
-* Text only
-* Text with a title 
+####1. Predefined Banners
+* Text banner
 * Text with an ActivityIndicator
 * Text with an icon
 * Text with a button
 * Text with two buttons
 * Custom view banner
 
-LIHAlert contains some predefined alert templates for each Alert type. You can use following code snippets to use them. 
+LIHAlert contains some predefined alerts for each Alert type. You can use following code snippets to use them. 
 
-##### How to use banner templates
 #####1. Text Banner
 <img src="http://3.bp.blogspot.com/-LLVpn6KrnNg/ViiaKmCHIqI/AAAAAAAACsw/13dVIUMG7E0/s300/TextBanner.gif" />
 
@@ -66,8 +42,24 @@ LIHAlert contains some predefined alert templates for each Alert type. You can u
 ```
 Call showBanner() function to show the banner
 
+To customize the banner,
+```Swift
+    	self.textAlert = LIHAlertManager.getTextAlert("Sample Message")
+        self.textAlert?.alertColor = UIColor.yellowColor()
+        textAlert.contentText = message
+        textAlert.alertColor = UIColor(red: 102.0/255.0, green: 197.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        textAlert.alertHeight = 50.0
+        textAlert.alertAlpha = 1.0
+        textAlert.autoCloseEnabled=true
+        textAlert.contentTextColor = UIColor.whiteColor()
+        textAlert.hasNavigationBar = true
+        textAlert.paddingTop = 0.0
+        textAlert.animationDuration = 0.35
+        textAlert.autoCloseTimeInterval = 1.5
+        self.textAlert?.initAlert(self.view)
+```
 
-#####2. Banner with a text and an icon
+#####2. Banner with a text and image
 <img src="http://2.bp.blogspot.com/-pMF5l-2VR0c/ViiaJ8bohOI/AAAAAAAACss/qFciyfThVUg/s300/Success.gif" />
 
 ```Swift
@@ -85,20 +77,6 @@ Call showBanner() function to show the banner
 To change the icon,
 ```Swift
     successAlert?.icon = UIImage(named:"imageName")
-```
-
-#####3. Text with title
-
-```Swift
-    var textWithTitleAlert: LIHAlert?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.textWithTitleAlert = LIHAlertManager.getTextWithTitleAlert("This is The Title", message: "This is a sample message.")
-        self.textWithTitleAlert?.initAlert(self.view)
-    }
-    func showBanner(sender: AnyObject) {
-        self.textWithTitleAlert?.show(nil, hidden: nil)
-    }
 ```
 
 
@@ -199,7 +177,7 @@ You can specify any view to act as the banner.
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    //In this case I am using an ImageView as the banner
+	//In this case I am using an ImageView as the banner
         let customView = UIImageView(frame: CGRectMake(0.0, 64.0, 100, 50))
         customView.image = UIImage(named: "customViewImage")
         self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView)
@@ -210,110 +188,35 @@ You can specify any view to act as the banner.
     }
 ```
 
-####How to Create a banner
+####2. Create a banner
 
 ```Swift
-    let alertTextAlert: LIHAlert = LIHAlert()
-    alertTextAlert.alertType = LIHAlertType.Text
-    alertTextAlert.contentText = message
-    alertTextAlert.alertColor = UIColor(red: 102.0/255.0, green: 197.0/255.0, blue: 241.0/255.0, alpha: 1.0)
-    alertTextAlert.alertHeight = 50.0
-    alertTextAlert.alertAlpha = 1.0
-    alertTextAlert.autoCloseEnabled=true
-    alertTextAlert.contentTextColor = UIColor.whiteColor()
-    alertTextAlert.hasNavigationBar = true
-    alertTextAlert.paddingTop = 0.0
-    alertTextAlert.animationDuration = 0.35
-    alertTextAlert.autoCloseTimeInterval = 1.5
+	let alertTextAlert: LIHAlert = LIHAlert()
+        alertTextAlert.alertType = LIHAlertType.Text
+        alertTextAlert.contentText = message
+        alertTextAlert.alertColor = UIColor(red: 102.0/255.0, green: 197.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        alertTextAlert.alertHeight = 50.0
+        alertTextAlert.alertAlpha = 1.0
+        alertTextAlert.autoCloseEnabled=true
+        alertTextAlert.contentTextColor = UIColor.whiteColor()
+        alertTextAlert.hasNavigationBar = true
+        alertTextAlert.paddingTop = 0.0
+        alertTextAlert.animationDuration = 0.35
+        alertTextAlert.autoCloseTimeInterval = 1.5
 ```
 
-#####ALert Types
+#####LIHALertType
 ```Swift
-    enum LIHAlertType {
-            case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons, TextWithTitle
-    }
-```
-
-####List of all properties
-```Swift
-    //delegates
-    public var delegate: LIHAlertDelegate?
-    
-    //Title
-    public var titleLabel: UILabel?
-    public var titleText: String //Default is "Sample Title"
-    public var titleTextColor: UIColor //Default is UIColor.blackColor()
-    public var titleTextFont: UIFont?
-    public var titleTextFontSize: CGFloat?
-    public var titleTextNumberOfLines: Int //Default is 1 
-    
-    
-    //Content Text
-    public var contentLabel: UILabel?
-    public var contentText: String //Default is "Sample Content"
-    public var contentTextColor: UIColor //Default is UIColor.blackColor()
-    public var contentTextFont: UIFont?
-    public var contentTextNumberOfLines: Int //Default is 2
-    
-    //TextWithLoading
-    public var activityIndicatorStyle: UIActivityIndicatorViewStyle //Default is UIActivityIndicatorViewStyle.White
-    
-    //Icon
-    public var  iconImageView: UIImageView?
-    public var  icon: UIImage?
-    
-    //OneButton
-    public var  button_textWithButton: UIButton?
-    public var  buttonText: String //Default is "Dismiss"
-    public var  buttonColor: UIColor //Default is UIColor.blueColor()
-    public var  buttonTextColor: UIColor //Default is UIColor.whiteColor()
-    public var  buttonFont: UIFont?
-    public var  buttonBordercolor: UIColor //Default is UIColor.whiteColor()
-    public var  buttonBorderWidth: CGFloat //Default is 1.0 
-    public var  buttonCornerRadius: CGFloat //Default is 3.0
-    public var  buttonWidth: CGFloat?
-    
-    //TWO BUTTONS
-        //ButtonOne
-    public var  buttonOne_textWithButton: UIButton?
-    public var  buttonOneText: String //Default is "Dismiss"
-    public var  buttonOneColor: UIColor //Default is UIColor.blueColor()
-    public var  buttonOneTextColor: UIColor //Default is UIColor.whiteColor() 
-    public var  buttonOneFont: UIFont?
-    public var  buttonOneBordercolor: UIColor //Default is UIColor.whiteColor()
-    public var  buttonOneBorderWidth: CGFloat //Default is 1.0
-    public var  buttonOneCornerRadius: CGFloat //Default is 3.0
-    
-        //ButtonTwo
-    public var  buttonTwo_textWithButton: UIButton?
-    public var  buttonTwoText: String //Default is "Dismiss"
-    public var  buttonTwoColor: UIColor //Default is UIColor.blueColor()
-    public var  buttonTwoTextColor: UIColor //Default is UIColor.whiteColor()
-    public var  buttonTwoFont: UIFont?
-    public var  buttonTwoBordercolor: UIColor //Default is UIColor.whiteColor()
-    public var  buttonTwoBorderWidth: CGFloat //Default is 1.0
-    public var  buttonTwoCornerRadius: CGFloat //Default is 3.0
-    
-    //AlertView
-    public var  alertView: UIView?
-    public var  alertColor: UIColor //Default is UIColor.grayColor()
-    public var  alertAlpha: CGFloat //Default is 1.0
-    public var  alertHeight:CGFloat //Default is 75.0
-    public var  paddingLeft: CGFloat //Default is 0.0
-    public var  paddingTop: CGFloat //Default is 0.0
-    public var  animationDuration: NSTimeInterval //Default is 0.5
-    public var  alertType: LIHAlertType //Default is LIHAlertType.Text
-    public var  autoCloseEnabled: Bool //Default is true
-    public var  autoCloseTimeInterval: Double //Default is 3.0
-    public var  hasNavigationBar: Bool //Default is false
-
+	enum LIHAlertType {
+    		case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons
+	}
 ```
 
 ### Use the completion callbacks
 ```Swift
-    //when showing an auto hiding banner
-    lihAlert?.show({ () -> () in
-                //alert showed
+	//when showing an auto hiding banner
+	lihAlert?.show({ () -> () in
+            	//alert showed
             }, hidden: { () -> () in
                 //alert hidden
         })
@@ -333,18 +236,26 @@ Even the navigation bar is there, set it to false.
 alert.hasNavigationBar = false
 ```
 
-### ChangeLog
 
-v1.0.0
-######Banner templates
-* Text only
-* Text with a title 
-* Text with an ActivityIndicator
-* Text with an icon
-* Text with a button
-* Text with two buttons
-* Custom view banner
+###Demo Project
+The LIHAlert workspace contains a demo project, also used for development.
 
+
+### Requirements
+Xcode 7+
+
+### Installation
+
+LIHAlert is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "LIHAlert"
+```
+
+or
+
+Copy the LIHAlert folder into your project.
 
 ### Author
 

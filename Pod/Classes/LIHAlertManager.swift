@@ -36,8 +36,9 @@ public class LIHAlertManager {
         alertTextAlert.alertType = LIHAlertType.TextWithTitle
         alertTextAlert.contentText = message
         alertTextAlert.titleText = title
+        alertTextAlert.contentTextFont = UIFont.systemFontOfSize(15)
         alertTextAlert.alertColor = UIColor.orangeColor()
-        alertTextAlert.alertHeight = 90.0
+        alertTextAlert.alertHeight = 85.0
         alertTextAlert.alertAlpha = 1.0
         alertTextAlert.autoCloseEnabled=true
         alertTextAlert.contentTextColor = UIColor.whiteColor()
