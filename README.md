@@ -335,6 +335,9 @@ alert.hasNavigationBar = false
 
 ### ChangeLog
 
+v1.1.0
+Fixed an issue - Alerts comes to the top when it appears
+
 v1.0.0
 ######Banner templates
 * Text only

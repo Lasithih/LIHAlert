@@ -271,6 +271,7 @@ public class LIHAlert: NSObject {
     private var buttonHighlightAlpha: CGFloat = 0.5
     private var overlayView: UIView?
     private var activityIndicatorLoading: UIActivityIndicatorView?
+    private var containerView: UIView?
     
     //validation
     private var scheduledAutoClose: dispatch_cancelable_closure?
@@ -278,6 +279,8 @@ public class LIHAlert: NSObject {
     
     
     public func initAlert(container: UIView) {
+        
+        self.containerView = container
         
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LIHAlert.orientationChanged(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -727,6 +730,10 @@ public class LIHAlert: NSObject {
     }
     
     public func show(showed:(()->())?, hidden:(()->())?) {
+        
+        if let overlay = self.overlayView {
+            self.containerView?.bringSubviewToFront(overlay)
+        }
         
         cancel_delay(self.scheduledAutoClose)
         

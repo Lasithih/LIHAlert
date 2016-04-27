@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '12DFDD7DF25DF70D47ADC5D7'
+               BlueprintIdentifier = 'F2F1417066B9AD37733C259B'
                BlueprintName = 'LIHAlert'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'LIHAlert.framework'>
