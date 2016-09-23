@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     //MARK: - Private Methods
     func initAlerts() {
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CustomViewVc")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CustomViewVc")
         self.customViewAlert = LIHAlertManager.getCustomViewAlert(vc!.view.viewWithTag(5)!)
         self.customViewAlert?.initAlert(self.view)
         
@@ -60,52 +60,52 @@ class ViewController: UIViewController {
     }
 
     //MARK: - Events
-    @IBAction func showTapped(sender: AnyObject) {
+    @IBAction func showTapped(_ sender: AnyObject) {
         
         self.textAlert?.show(nil, hidden: nil)
     }
 
-    @IBAction func showProcessingAlert(sender: AnyObject) {
+    @IBAction func showProcessingAlert(_ sender: AnyObject) {
         
         self.processingAlert?.show(nil, hidden: nil)
     }
     
-    @IBAction func hideProcessiongAlert(sender: AnyObject) {
+    @IBAction func hideProcessiongAlert(_ sender: AnyObject) {
         
         self.processingAlert?.hideAlert({ () -> () in
             //
         })
     }
     
-    @IBAction func showCustomView(sender: AnyObject) {
+    @IBAction func showCustomView(_ sender: AnyObject) {
         
         self.customViewAlert?.show(nil, hidden: nil)
         
     }
     
-    @IBAction func showSuccessAlert(sender: AnyObject) {
+    @IBAction func showSuccessAlert(_ sender: AnyObject) {
         
         self.successAlert?.show(nil, hidden: nil)
     }
     
-    @IBAction func showErrorAlert(sender: AnyObject) {
+    @IBAction func showErrorAlert(_ sender: AnyObject) {
         
         self.errorAlert?.show(nil, hidden: nil)
     }
     
-    @IBAction func shoeTextWithButton(sender: AnyObject) {
+    @IBAction func shoeTextWithButton(_ sender: AnyObject) {
         
         self.textWithButtonAlert?.show(nil, hidden: nil)
         self.textWithButtonAlert?.delegate = self
     }
     
-    @IBAction func showTextWithTwoButtons(sender: AnyObject) {
+    @IBAction func showTextWithTwoButtons(_ sender: AnyObject) {
         
         self.textWithTwoButtonsAlert?.show(nil, hidden: nil)
         self.textWithTwoButtonsAlert?.delegate = self
     }
     
-    @IBAction func showTextWithTitle(sender: AnyObject) {
+    @IBAction func showTextWithTitle(_ sender: AnyObject) {
         
         self.textWithTitleAlert?.show(nil, hidden: nil)
     }
@@ -115,12 +115,12 @@ class ViewController: UIViewController {
 
 extension ViewController: LIHAlertDelegate {
     
-    func buttonPressed(button: UIButton) {
+    func buttonPressed(_ button: UIButton) {
         
         self.textWithButtonAlert?.hideAlert(nil)
     }
     
-    func buttonOnePressed(button: UIButton) {
+    func buttonOnePressed(_ button: UIButton) {
         
         self.textWithTwoButtonsAlert?.hideAlert({ () -> () in
             
@@ -129,7 +129,7 @@ extension ViewController: LIHAlertDelegate {
         
     }
     
-    func buttonTwoPressed(button: UIButton) {
+    func buttonTwoPressed(_ button: UIButton) {
         
         self.textWithTwoButtonsAlert?.hideAlert(nil)
     }

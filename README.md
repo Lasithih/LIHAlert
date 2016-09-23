@@ -1,6 +1,7 @@
 # LIHAlert
 
-#####LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0. 
+#####LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0.
+#####Updated to Swift 3
 
 [![CI Status](http://img.shields.io/travis/Lasith Hettiarachchi/LIHAlert.svg?style=flat)](https://travis-ci.org/Lasith Hettiarachchi/LIHAlert)
 [![Version](https://img.shields.io/cocoapods/v/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
@@ -27,6 +28,13 @@ pod "LIHAlert"
 or
 
 Copy the LIHAlert folder into your project.
+
+
+
+For the swift 2 version
+```ruby
+pod 'LIHAlert', '~> 1.1.0'
+```
 
 
 ### Usage
@@ -334,6 +342,9 @@ alert.hasNavigationBar = false
 ```
 
 ### ChangeLog
+
+v2.0.0
+######Updated to Swift 3
 
 v1.1.0
 ######Fixed an issue - Alerts comes to the top when it appears

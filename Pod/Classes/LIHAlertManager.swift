@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-public class LIHAlertManager {
+open class LIHAlertManager {
     
     
-    public static func getTextAlert(message: String) -> LIHAlert {
+    open static func getTextAlert(_ message: String) -> LIHAlert {
         
         let alertTextAlert: LIHAlert = LIHAlert()
-        alertTextAlert.alertType = LIHAlertType.Text
+        alertTextAlert.alertType = LIHAlertType.text
         alertTextAlert.contentText = message
         alertTextAlert.alertColor = UIColor(red: 102.0/255.0, green: 197.0/255.0, blue: 241.0/255.0, alpha: 1.0)
         alertTextAlert.alertHeight = 50.0
         alertTextAlert.alertAlpha = 1.0
         alertTextAlert.autoCloseEnabled=true
-        alertTextAlert.contentTextColor = UIColor.whiteColor()
+        alertTextAlert.contentTextColor = UIColor.white
         alertTextAlert.hasNavigationBar = true
         alertTextAlert.paddingTop = 0.0
         alertTextAlert.animationDuration = 0.35
@@ -30,19 +30,19 @@ public class LIHAlertManager {
     }
     
     
-    public static func getTextWithTitleAlert(title: String, message:String) -> LIHAlert {
+    open static func getTextWithTitleAlert(_ title: String, message:String) -> LIHAlert {
         
         let alertTextAlert: LIHAlert = LIHAlert()
-        alertTextAlert.alertType = LIHAlertType.TextWithTitle
+        alertTextAlert.alertType = LIHAlertType.textWithTitle
         alertTextAlert.contentText = message
         alertTextAlert.titleText = title
-        alertTextAlert.contentTextFont = UIFont.systemFontOfSize(15)
-        alertTextAlert.alertColor = UIColor.orangeColor()
+        alertTextAlert.contentTextFont = UIFont.systemFont(ofSize: 15)
+        alertTextAlert.alertColor = UIColor.orange
         alertTextAlert.alertHeight = 85.0
         alertTextAlert.alertAlpha = 1.0
         alertTextAlert.autoCloseEnabled=true
-        alertTextAlert.contentTextColor = UIColor.whiteColor()
-        alertTextAlert.titleTextColor = UIColor.whiteColor()
+        alertTextAlert.contentTextColor = UIColor.white
+        alertTextAlert.titleTextColor = UIColor.white
         alertTextAlert.hasNavigationBar = true
         alertTextAlert.paddingTop = 0.0
         alertTextAlert.animationDuration = 0.35
@@ -51,16 +51,16 @@ public class LIHAlertManager {
     }
     
     
-    public static func getProcessingAlert(message: String) -> LIHAlert {
+    open static func getProcessingAlert(_ message: String) -> LIHAlert {
         
         let processingAlert: LIHAlert = LIHAlert()
-        processingAlert.alertType = LIHAlertType.TextWithLoading
+        processingAlert.alertType = LIHAlertType.textWithLoading
         processingAlert.contentText = message
-        processingAlert.alertColor = UIColor.grayColor()
+        processingAlert.alertColor = UIColor.gray
         processingAlert.alertHeight = 70.0
         processingAlert.alertAlpha = 1.0
         processingAlert.autoCloseEnabled=false
-        processingAlert.contentTextColor = UIColor.whiteColor()
+        processingAlert.contentTextColor = UIColor.white
         processingAlert.hasNavigationBar = true
         processingAlert.paddingTop = 0.0
         processingAlert.animationDuration = 0.35
@@ -70,10 +70,10 @@ public class LIHAlertManager {
     }
     
     
-    public static func getCustomViewAlert(customView: UIView) -> LIHAlert {
+    open static func getCustomViewAlert(_ customView: UIView) -> LIHAlert {
         
         let customViewAlert: LIHAlert = LIHAlert()
-        customViewAlert.alertType = LIHAlertType.Custom
+        customViewAlert.alertType = LIHAlertType.custom
         customViewAlert.alertView = customView
         customViewAlert.autoCloseEnabled=true
         customViewAlert.hasNavigationBar = true
@@ -84,17 +84,17 @@ public class LIHAlertManager {
     }
     
     
-    public static func getSuccessAlert(message: String) -> LIHAlert {
+    open static func getSuccessAlert(_ message: String) -> LIHAlert {
         
         let successAlert: LIHAlert = LIHAlert()
-        successAlert.alertType = LIHAlertType.TextWithIcon
+        successAlert.alertType = LIHAlertType.textWithIcon
         successAlert.icon = UIImage(named: "SuccessIcon")
         successAlert.contentText = message
         successAlert.alertColor = UIColor(red: 17.0/255.0, green: 201.0/255.0, blue: 3.0/255.0, alpha: 1.0)
         successAlert.alertHeight = 70.0
         successAlert.alertAlpha = 1.0
         successAlert.autoCloseEnabled=true
-        successAlert.contentTextColor = UIColor.whiteColor()
+        successAlert.contentTextColor = UIColor.white
         successAlert.hasNavigationBar = true
         successAlert.paddingTop = 0.0
         successAlert.animationDuration = 0.35
@@ -104,17 +104,17 @@ public class LIHAlertManager {
     }
     
     
-    public static func getErrorAlert(message: String) -> LIHAlert {
+    open static func getErrorAlert(_ message: String) -> LIHAlert {
         
         let errorAlert: LIHAlert = LIHAlert()
-        errorAlert.alertType = LIHAlertType.TextWithIcon
+        errorAlert.alertType = LIHAlertType.textWithIcon
         errorAlert.icon = UIImage(named: "ErrorIcon")
         errorAlert.contentText = message
         errorAlert.alertColor = UIColor(red: 201.0/255.0, green: 3.0/255.0, blue: 3.0/255.0, alpha: 1.0)
         errorAlert.alertHeight = 70.0
         errorAlert.alertAlpha = 1.0
         errorAlert.autoCloseEnabled=true
-        errorAlert.contentTextColor = UIColor.whiteColor()
+        errorAlert.contentTextColor = UIColor.white
         errorAlert.hasNavigationBar = true
         errorAlert.paddingTop = 0.0
         errorAlert.animationDuration = 0.35
@@ -124,10 +124,10 @@ public class LIHAlertManager {
     }
     
     
-    public static func getTextWithButtonAlert(message: String, buttonText: String) -> LIHAlert {
+    open static func getTextWithButtonAlert(_ message: String, buttonText: String) -> LIHAlert {
         
         let textWithButtonAlert: LIHAlert = LIHAlert()
-        textWithButtonAlert.alertType = LIHAlertType.TextWithButton
+        textWithButtonAlert.alertType = LIHAlertType.textWithButton
         textWithButtonAlert.contentText = message
         textWithButtonAlert.buttonText = buttonText
         textWithButtonAlert.buttonColor = UIColor(red: 22.0/255.0, green: 40.0/255.0, blue: 114.0/255.0, alpha: 1.0)
@@ -136,7 +136,7 @@ public class LIHAlertManager {
         textWithButtonAlert.alertHeight = 130.0
         textWithButtonAlert.alertAlpha = 1.0
         textWithButtonAlert.autoCloseEnabled=false
-        textWithButtonAlert.contentTextColor = UIColor.whiteColor()
+        textWithButtonAlert.contentTextColor = UIColor.white
         textWithButtonAlert.hasNavigationBar = true
         textWithButtonAlert.paddingTop = 0.0
         textWithButtonAlert.animationDuration = 0.35
@@ -146,10 +146,10 @@ public class LIHAlertManager {
     }
     
     
-    public static func getTextWithTwoButtonsAlert(message: String, buttonOneText: String, buttonTwoText: String) -> LIHAlert {
+    open static func getTextWithTwoButtonsAlert(_ message: String, buttonOneText: String, buttonTwoText: String) -> LIHAlert {
         
         let textWithButtonsAlert: LIHAlert = LIHAlert()
-        textWithButtonsAlert.alertType = LIHAlertType.TextWithTwoButtons
+        textWithButtonsAlert.alertType = LIHAlertType.textWithTwoButtons
         textWithButtonsAlert.contentText = message
         textWithButtonsAlert.alertColor = UIColor(red: 22.0/255.0, green: 40.0/255.0, blue: 114.0/255.0, alpha: 1.0)
         
@@ -161,7 +161,7 @@ public class LIHAlertManager {
         textWithButtonsAlert.alertHeight = 130.0
         textWithButtonsAlert.alertAlpha = 1.0
         textWithButtonsAlert.autoCloseEnabled=false
-        textWithButtonsAlert.contentTextColor = UIColor.whiteColor()
+        textWithButtonsAlert.contentTextColor = UIColor.white
         textWithButtonsAlert.hasNavigationBar = true
         textWithButtonsAlert.paddingTop = 0.0
         textWithButtonsAlert.animationDuration = 0.35
