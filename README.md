@@ -82,7 +82,7 @@ Call showBanner() function to show the banner
     var successAlert: LIHAlert?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
+        self.successAlert = LIHAlertManager.getSuccessAlert(message: "Successfully subscribed")
         self.successAlert?.initAlert(self.view)
     }
     func showBanner(sender: AnyObject) {

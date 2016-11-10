@@ -34,28 +34,28 @@ class ViewController: UIViewController {
     func initAlerts() {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CustomViewVc")
-        self.customViewAlert = LIHAlertManager.getCustomViewAlert(vc!.view.viewWithTag(5)!)
+        self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView: vc!.view.viewWithTag(5)!)
         self.customViewAlert?.initAlert(self.view)
         
-        self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert("You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")
+        self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert(message: "You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")
         self.textWithButtonAlert?.initAlert(self.view)
         
-        self.textWithTwoButtonsAlert = LIHAlertManager.getTextWithTwoButtonsAlert("Do you want to subscribe for the monthly newsletter?", buttonOneText: "Subscribe", buttonTwoText: "Cancel")
+        self.textWithTwoButtonsAlert = LIHAlertManager.getTextWithTwoButtonsAlert(message: "Do you want to subscribe for the monthly newsletter?", buttonOneText: "Subscribe", buttonTwoText: "Cancel")
         self.textWithTwoButtonsAlert?.initAlert(self.view)
         
-        self.processingAlert = LIHAlertManager.getProcessingAlert("Fetching data...")
+        self.processingAlert = LIHAlertManager.getProcessingAlert(message: "Fetching data...")
         self.processingAlert?.initAlert(self.view)
         
-        self.successAlert = LIHAlertManager.getSuccessAlert("Successfully subscribed")
+        self.successAlert = LIHAlertManager.getSuccessAlert(message: "Successfully subscribed")
         self.successAlert?.initAlert(self.view)
         
-        self.errorAlert = LIHAlertManager.getErrorAlert("Failed. Please try again")
+        self.errorAlert = LIHAlertManager.getErrorAlert(message: "Failed. Please try again")
         self.errorAlert?.initAlert(self.view)
         
-        self.textAlert = LIHAlertManager.getTextAlert("Sample Message Sample Message")
+        self.textAlert = LIHAlertManager.getTextAlert(message: "Sample Message Sample Message")
         self.textAlert?.initAlert(self.view)
         
-        self.textWithTitleAlert = LIHAlertManager.getTextWithTitleAlert("This is The Title", message: "This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.")
+        self.textWithTitleAlert = LIHAlertManager.getTextWithTitleAlert(title: "This is The Title", message: "This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.")
         self.textWithTitleAlert?.initAlert(self.view)
     }
 

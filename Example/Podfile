@@ -1,12 +1,15 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+inhibit_all_warnings!
+
+xcodeproj 'LIHAlert'
 use_frameworks!
 
-target 'LIHAlert_Example', :exclusive => true do
+target 'LIHAlert_Example' do
   pod 'LIHAlert', :path => '../'
 end
 
-target 'LIHAlert_Tests', :exclusive => true do
+target 'LIHAlert_Tests' do
   pod 'LIHAlert', :path => '../'
-
-  
 end
