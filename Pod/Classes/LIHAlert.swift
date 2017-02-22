@@ -522,6 +522,7 @@ open class LIHAlert: NSObject {
         iconContainer.translatesAutoresizingMaskIntoConstraints = false
         self.iconImageView = UIImageView()
         iconImageView?.image = self.icon
+        self.iconImageView?.clipsToBounds = true
         
         if let imgView = self.iconImageView {
             //Imageview

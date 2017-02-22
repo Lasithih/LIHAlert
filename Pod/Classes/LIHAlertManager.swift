@@ -57,7 +57,7 @@ open class LIHAlertManager {
         processingAlert.alertType = LIHAlertType.textWithLoading
         processingAlert.contentText = message
         processingAlert.alertColor = UIColor.gray
-        processingAlert.alertHeight = 70.0
+        processingAlert.alertHeight = 50.0
         processingAlert.alertAlpha = 1.0
         processingAlert.autoCloseEnabled=false
         processingAlert.contentTextColor = UIColor.white

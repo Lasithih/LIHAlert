@@ -215,7 +215,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 3TSLWDV4MK;
+						DevelopmentTeam = 44N89G9KPS;
 						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -495,7 +495,7 @@
 			baseConfigurationReference = A0CB75807330E1CB9FC76901 /* Pods-LIHAlert_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3TSLWDV4MK;
+				DEVELOPMENT_TEAM = 44N89G9KPS;
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -510,7 +510,7 @@
 			baseConfigurationReference = D71AA286B657E3DAB84A33B7 /* Pods-LIHAlert_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3TSLWDV4MK;
+				DEVELOPMENT_TEAM = 44N89G9KPS;
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
