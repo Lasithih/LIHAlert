@@ -42,6 +42,7 @@
 		607FACE51AFB9204008FA782 /* LIHAlert_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LIHAlert_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		78BCE4DC1E5D59B20083477E /* LIHAlert_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LIHAlert_Example.entitlements; sourceTree = "<group>"; };
 		88C7D0E4BCC53C22B0B01472 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8A8FFE38947A9530A41E1072 /* Pods_LIHAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LIHAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CB75807330E1CB9FC76901 /* Pods-LIHAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LIHAlert_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LIHAlert_Example/Pods-LIHAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				78BCE4DC1E5D59B20083477E /* LIHAlert_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for LIHAlert */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -217,6 +219,11 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 44N89G9KPS;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;

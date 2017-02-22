@@ -1,5 +1,7 @@
 # LIHAlert
 
+![LIHAlert]("https://lh3.googleusercontent.com/-XYNO10zaN6M/WK0u2-4KViI/AAAAAAAACxk/aIM1p900FP8HU_hs9e639HgWdikC6OL5wCEw/h218/lihalert_anner.jpg")
+
 #####LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0.
 #####Updated to Swift 3
 
@@ -342,6 +344,9 @@ alert.hasNavigationBar = false
 ```
 
 ### ChangeLog
+
+v2.0.1
+######
 
 v2.0.0
 ######Updated to Swift 3

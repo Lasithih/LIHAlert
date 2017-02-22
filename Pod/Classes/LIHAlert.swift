@@ -26,6 +26,11 @@ open class LIHAlert: NSObject {
     //delegates
     open var delegate: LIHAlertDelegate?
     
+    //views
+//    open var alertView: UIView {
+//        
+//    }
+    
     
     //Title
     open var titleLabel: UILabel?
