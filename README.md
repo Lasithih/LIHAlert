@@ -54,14 +54,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 #### Templates
 LIHAlert contains some predefined alert templates for each Alert type. 
-* Text Alert
-* Success alert
-* Error alert 
-* Text with a title 
-* Processing Alert (Text with an ActivityIndicator)
-* Text with a button
-* Text with two buttons
-* Custom view banner (also used to embed view controllers)
+* [Text Alert](#1-text-banner)
+* [Success alert](#2-success-alert)
+* [Error alert](#3-error-alert)
+* [Text with a title](#4-text-with-title)
+* [Processing Alert (Text with an ActivityIndicator)](#5-loading-alert)
+* [Text with a button](#6-text-with-a-button-alert)
+* [Text with two buttons](#7-text-with-two-buttons-alert)
+* [Custom view banner](#8-custom-view-alert) (also used to [embed view controllers](#how-to-embed-a-view-controller))
 
 You can use following code snippets to use them. 
 
