@@ -14,6 +14,10 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		78B79B191E5EE0F700EAEF43 /* CustomAlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B79B181E5EE0F700EAEF43 /* CustomAlertsViewController.swift */; };
+		78B79B1C1E5EE1E700EAEF43 /* CustomOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B79B1B1E5EE1E700EAEF43 /* CustomOneViewController.swift */; };
+		78B79B1E1E5EEC4600EAEF43 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B79B1D1E5EEC4600EAEF43 /* MapKit.framework */; };
+		78B79B201E5EEF1300EAEF43 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B79B1F1E5EEF1300EAEF43 /* TableViewController.swift */; };
 		FEF7CA7978B7FD75414A435B /* Pods_LIHAlert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466B9A30F1DB025589C1816A /* Pods_LIHAlert_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +46,10 @@
 		607FACE51AFB9204008FA782 /* LIHAlert_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LIHAlert_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		78B79B181E5EE0F700EAEF43 /* CustomAlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertsViewController.swift; sourceTree = "<group>"; };
+		78B79B1B1E5EE1E700EAEF43 /* CustomOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOneViewController.swift; sourceTree = "<group>"; };
+		78B79B1D1E5EEC4600EAEF43 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		78B79B1F1E5EEF1300EAEF43 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		78BCE4DC1E5D59B20083477E /* LIHAlert_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LIHAlert_Example.entitlements; sourceTree = "<group>"; };
 		88C7D0E4BCC53C22B0B01472 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8A8FFE38947A9530A41E1072 /* Pods_LIHAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LIHAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B79B1E1E5EEC4600EAEF43 /* MapKit.framework in Frameworks */,
 				0248AF233F35EB00AAF97138 /* Pods_LIHAlert_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,8 +115,10 @@
 		607FACD21AFB9204008FA782 /* Example for LIHAlert */ = {
 			isa = PBXGroup;
 			children = (
+				78B79B1A1E5EE1D000EAEF43 /* CustomViewControllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				78B79B181E5EE0F700EAEF43 /* CustomAlertsViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -152,9 +163,19 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		78B79B1A1E5EE1D000EAEF43 /* CustomViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				78B79B1B1E5EE1E700EAEF43 /* CustomOneViewController.swift */,
+				78B79B1F1E5EEF1300EAEF43 /* TableViewController.swift */,
+			);
+			path = CustomViewControllers;
+			sourceTree = "<group>";
+		};
 		7A0DD5289F43D18E488C6078 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78B79B1D1E5EEC4600EAEF43 /* MapKit.framework */,
 				8A8FFE38947A9530A41E1072 /* Pods_LIHAlert_Example.framework */,
 				466B9A30F1DB025589C1816A /* Pods_LIHAlert_Tests.framework */,
 			);
@@ -227,7 +248,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 3TSLWDV4MK;
+						DevelopmentTeam = 44N89G9KPS;
 						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -370,7 +391,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B79B1C1E5EE1E700EAEF43 /* CustomOneViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				78B79B191E5EE0F700EAEF43 /* CustomAlertsViewController.swift in Sources */,
+				78B79B201E5EEF1300EAEF43 /* TableViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +457,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 44N89G9KPS;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -479,6 +504,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 44N89G9KPS;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -502,6 +528,7 @@
 			baseConfigurationReference = A0CB75807330E1CB9FC76901 /* Pods-LIHAlert_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 44N89G9KPS;
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -517,6 +544,7 @@
 			baseConfigurationReference = D71AA286B657E3DAB84A33B7 /* Pods-LIHAlert_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 44N89G9KPS;
 				INFOPLIST_FILE = LIHAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -532,7 +560,7 @@
 			baseConfigurationReference = 46A47429D546D5E2D92B6C43 /* Pods-LIHAlert_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 3TSLWDV4MK;
+				DEVELOPMENT_TEAM = 44N89G9KPS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -555,7 +583,7 @@
 			baseConfigurationReference = 10FBAC056B0C7D006546F52E /* Pods-LIHAlert_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 3TSLWDV4MK;
+				DEVELOPMENT_TEAM = 44N89G9KPS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

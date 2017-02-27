@@ -35,7 +35,7 @@ open class LIHAlert: NSObject {
             self.titleLabel?.text = self.titleText
         }
     }
-    open var titleTextColor: UIColor = UIColor.black{
+    open var titleTextColor: UIColor = UIColor.black {
         didSet {
             self.titleLabel?.textColor = self.titleTextColor
         }
@@ -293,10 +293,11 @@ open class LIHAlert: NSObject {
         var overlayHeight = self.alertHeight
         var topMargin: CGFloat = 0.0
         
-        if let customView = self.alertView {
-            overlayHeight = customView.frame.size.height
-            self.alertHeight = customView.frame.size.height
-        }
+//        if let customView = self.alertView {
+//            overlayHeight = customView.frame.size.height
+//            self.alertHeight = customView.frame.size.height
+//        }
+        
         if self.hasNavigationBar {
             topMargin = self.navBarHeight
         }
@@ -386,7 +387,7 @@ open class LIHAlert: NSObject {
                 self.overlayView?.addConstraints([heightCon, bottomCon, leftCon, rightCon])
                 
                 mainView.translatesAutoresizingMaskIntoConstraints = false
-                mainView.backgroundColor = self.alertColor
+//                mainView.backgroundColor = self.alertColor
                 mainView.alpha = self.alertAlpha
                 mainView.clipsToBounds = true
                 

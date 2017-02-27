@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CustomViewVc")
         self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView: vc!.view.viewWithTag(5)!)
+        self.customViewAlert?.alertHeight = 180
         self.customViewAlert?.initAlert(self.view)
         
         self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert(message: "You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")

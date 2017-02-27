@@ -1,9 +1,13 @@
-# LIHAlert
 
 ![LIHAlert](https://lh3.googleusercontent.com/-XYNO10zaN6M/WK0u2-4KViI/AAAAAAAACxk/aIM1p900FP8HU_hs9e639HgWdikC6OL5wCEw/h218/lihalert_anner.jpg)
 
-#####LIHAlert provides animated banners for iOS which is written using the apple's newest programming language Swift 2.0.
+# LIHAlert
+
+#####LIHAlert provides animated banners for iOS.
 #####Updated to Swift 3
+
+![general](https://cloud.githubusercontent.com/assets/12048316/23353851/8814f5d4-fcf4-11e6-9e83-94a7f5c0e822.gif)
+![custom_list](https://cloud.githubusercontent.com/assets/12048316/23353854/88432f26-fcf4-11e6-9b95-d898f46775f5.gif)
 
 [![CI Status](http://img.shields.io/travis/Lasith Hettiarachchi/LIHAlert.svg?style=flat)](https://travis-ci.org/Lasith Hettiarachchi/LIHAlert)
 [![Version](https://img.shields.io/cocoapods/v/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
@@ -13,7 +17,7 @@
 
 
 ###Demo Project
-The LIHAlert workspace contains a demo project, also used for development.
+The LIHAlert workspace contains a demo project, also used for developments.
 
 ### Requirements
 Xcode 7+
@@ -49,19 +53,20 @@ Import the module using
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 #### Templates
-* Text only
+LIHAlert contains some predefined alert templates for each Alert type. 
+* Text Alert
+* Success alert
+* Error alert 
 * Text with a title 
-* Text with an ActivityIndicator
-* Text with an icon
+* Processing Alert (Text with an ActivityIndicator)
 * Text with a button
 * Text with two buttons
-* Custom view banner
+* Custom view banner (also used to embed view controllers)
 
-LIHAlert contains some predefined alert templates for each Alert type. You can use following code snippets to use them. 
+You can use following code snippets to use them. 
 
-##### How to use banner templates
 #####1. Text Banner
-<img src="http://3.bp.blogspot.com/-LLVpn6KrnNg/ViiaKmCHIqI/AAAAAAAACsw/13dVIUMG7E0/s300/TextBanner.gif" />
+![text](https://cloud.githubusercontent.com/assets/12048316/23353834/7c72d1c4-fcf4-11e6-9475-32bb4fc31ad6.gif)
 
 ```Swift
     var textAlert: LIHAlert?
@@ -77,19 +82,19 @@ LIHAlert contains some predefined alert templates for each Alert type. You can u
 Call showBanner() function to show the banner
 
 
-#####2. Banner with a text and an icon
-<img src="http://2.bp.blogspot.com/-pMF5l-2VR0c/ViiaJ8bohOI/AAAAAAAACss/qFciyfThVUg/s300/Success.gif" />
+#####2. Success Alert
+![success](https://cloud.githubusercontent.com/assets/12048316/23353849/8811738c-fcf4-11e6-84c3-b9c51c4cc60a.gif)
 
 ```Swift
-    var successAlert: LIHAlert?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.successAlert = LIHAlertManager.getSuccessAlert(message: "Successfully subscribed")
-        self.successAlert?.initAlert(self.view)
-    }
-    func showBanner(sender: AnyObject) {
-        self.successAlert?.show(nil, hidden: nil)
-    }
+var successAlert: LIHAlert?
+override func viewDidLoad() {
+    super.viewDidLoad()
+    self.successAlert = LIHAlertManager.getSuccessAlert(message: "Successfully subscribed")
+    self.successAlert?.initAlert(self.view)
+}
+func showBanner(sender: AnyObject) {
+    self.successAlert?.show(nil, hidden: nil)
+}
 ```
 
 To change the icon,
@@ -97,7 +102,30 @@ To change the icon,
     successAlert?.icon = UIImage(named:"imageName")
 ```
 
-#####3. Text with title
+
+
+#####3. Error Alert
+![error](https://cloud.githubusercontent.com/assets/12048316/23353848/880d199a-fcf4-11e6-934e-4ecd9cfc506f.gif)
+
+```Swift
+var errorAlert: LIHAlert?
+override func viewDidLoad() {
+    super.viewDidLoad()
+    self.errorAlert = LIHAlertManager.getErrorAlert(message: "Failed. Please try again")
+    self.errorAlert?.initAlert(self.view)
+}
+func showBanner(sender: AnyObject) {
+    self.errorAlert?.show(nil, hidden: nil)
+}
+```
+
+To change the icon,
+```Swift
+    successAlert?.icon = UIImage(named:"imageName")
+```
+
+#####4. Text with title
+![textwithtitle](https://cloud.githubusercontent.com/assets/12048316/23353855/88660276-fcf4-11e6-8cf5-8ec076104ee9.gif)
 
 ```Swift
     var textWithTitleAlert: LIHAlert?
@@ -112,11 +140,10 @@ To change the icon,
 ```
 
 
-#####4. Loading Alert
+#####5. Loading Alert
 
 This is a banner with a text and an activity indicator. This is not an auto close banner. You have to hide it when the process is finished.
-
-<img src="http://3.bp.blogspot.com/-ASkTzpFIuSU/ViiaK2_mSYI/AAAAAAAACs8/6stjXecZWqI/s300/TextWithLoading.gif" />
+![processing](https://cloud.githubusercontent.com/assets/12048316/23353852/8817c232-fcf4-11e6-821c-6c2b9351bed7.gif)
 
 ```Swift
     var processingAlert: LIHAlert?
@@ -140,7 +167,7 @@ To change the activity indicator style,
 
 #####5. Text with a button Alert
 This alert contains a button along with a text. More suitable for notifying important messages to user.
-<img src="http://2.bp.blogspot.com/-lrD_IGv93yE/ViiaKyqoRVI/AAAAAAAACs4/ggqDlP9E-YY/s300/TextWithButton.gif" />
+![withbutton](https://cloud.githubusercontent.com/assets/12048316/23353856/886cba3a-fcf4-11e6-8f31-39be41e0d3a1.gif)
 
 ```Swift
     var textWithButtonAlert: LIHAlert?
@@ -167,8 +194,7 @@ class ViewController: LIHAlertDelegate {
 
 #####6. Text with two buttons Alert
 This alert contains two buttons along with a text.
-
-<img src="http://3.bp.blogspot.com/-1pXYpVNoNz0/ViiaLcHSqnI/AAAAAAAACtI/NQjV1Pe9ACs/s300/TextWithTwoButtons.gif" />
+![twobuttons](https://cloud.githubusercontent.com/assets/12048316/23353857/8871f068-fcf4-11e6-9975-5e174296327b.gif)
 
 ```Swift
     var textWithTwoButtonsAlert: LIHAlert?
@@ -201,8 +227,7 @@ class ViewController: LIHAlertDelegate {
 
 #####7. Custom View Alert
 You can specify any view to act as the banner.
-
-<img src="http://4.bp.blogspot.com/-lHReuTyaJ8A/ViiaJyAiEfI/AAAAAAAACso/Q9A-X3MNcTo/s300/CustomView.gif" />
+![custom](https://cloud.githubusercontent.com/assets/12048316/23353847/880ab1dc-fcf4-11e6-8756-11e7a4cc70bd.gif)
 
 ```Swift
     var customViewAlert: LIHAlert?
@@ -220,7 +245,25 @@ You can specify any view to act as the banner.
     }
 ```
 
-####How to Create a banner
+
+####How to embed a view controller
+```Swift
+var customViewAlert: LIHAlert?
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let m_vc = (self.storyboard?.instantiateViewController(withIdentifier: "MapVc"))!
+    self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView: m_vc.view)
+    self.customViewAlert?.initAlert(self.view)
+    self.addChildViewController(m_vc)
+    m_vc.didMove(toParentViewController: self)
+}
+func showBanner(sender: AnyObject) {
+    self.customViewAlert?.show(nil, hidden: nil)
+}
+```
+See 'CustomAlertsViewController' for more embed view controller examples
+
+####How to create your own banner
 
 ```Swift
     let alertTextAlert: LIHAlert = LIHAlert()
