@@ -290,7 +290,7 @@ open class LIHAlert: NSObject {
         self.overlayView = UIView()
         self.overlayView?.clipsToBounds = true
         self.overlayView?.isHidden = true
-        var overlayHeight = self.alertHeight
+        let overlayHeight = self.alertHeight
         var topMargin: CGFloat = 0.0
         
 //        if let customView = self.alertView {

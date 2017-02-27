@@ -82,6 +82,7 @@ You can use following code snippets to use them.
 Call showBanner() function to show the banner
 
 
+
 #####2. Success Alert
 ![success](https://cloud.githubusercontent.com/assets/12048316/23353849/8811738c-fcf4-11e6-84c3-b9c51c4cc60a.gif)
 
@@ -124,6 +125,8 @@ To change the icon,
     successAlert?.icon = UIImage(named:"imageName")
 ```
 
+
+
 #####4. Text with title
 ![textwithtitle](https://cloud.githubusercontent.com/assets/12048316/23353855/88660276-fcf4-11e6-8cf5-8ec076104ee9.gif)
 
@@ -138,6 +141,7 @@ To change the icon,
         self.textWithTitleAlert?.show(nil, hidden: nil)
     }
 ```
+
 
 
 #####5. Loading Alert
@@ -166,7 +170,9 @@ To change the activity indicator style,
     processingAlert?.activityIndicatorStyle = UIActivityIndicatorViewStyle.WhiteLarge
 ```
 
-#####5. Text with a button Alert
+
+
+#####6. Text with a button Alert
 This alert contains a button along with a text. More suitable for notifying important messages to user.
 ![withbutton](https://cloud.githubusercontent.com/assets/12048316/23353856/886cba3a-fcf4-11e6-8f31-39be41e0d3a1.gif)
 
@@ -182,7 +188,7 @@ This alert contains a button along with a text. More suitable for notifying impo
     }
 ```
 Call showBanner() function to show the banner. 
-Implement your view controller from LIHAlertDelegate.
+Implement LIHAlertDelegate for button click events.
 
 ```Swift
 class ViewController: LIHAlertDelegate {
@@ -193,7 +199,9 @@ class ViewController: LIHAlertDelegate {
 }
 ```
 
-#####6. Text with two buttons Alert
+
+
+#####7. Text with two buttons Alert
 This alert contains two buttons along with a text.
 
 ![twobuttons](https://cloud.githubusercontent.com/assets/12048316/23353857/8871f068-fcf4-11e6-9975-5e174296327b.gif)
@@ -211,7 +219,7 @@ This alert contains two buttons along with a text.
     }
 ```
 Call showBanner() function to show the banner. 
-Implement your view controller from LIHAlertDelegate.
+Implement LIHAlertDelegate for button click events.
 
 ```Swift
 class ViewController: LIHAlertDelegate {
@@ -227,7 +235,8 @@ class ViewController: LIHAlertDelegate {
 ```
 
 
-#####7. Custom View Alert
+
+#####8. Custom View Alert
 You can specify any view to act as the banner.
 
 ![customview](https://cloud.githubusercontent.com/assets/12048316/23353846/87e36884-fcf4-11e6-9349-542ed94452c8.gif)
@@ -247,6 +256,7 @@ You can specify any view to act as the banner.
         self.customViewAlert?.show(nil, hidden: nil)
     }
 ```
+
 
 
 ####How to embed a view controller
@@ -394,8 +404,8 @@ alert.hasNavigationBar = false
 
 ### ChangeLog
 
-v2.0.1
-######
+v2.0.2
+######Embed view controller support
 
 v2.0.0
 ######Updated to Swift 3
