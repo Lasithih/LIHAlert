@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public enum LIHAlertType {
+@objc public enum LIHAlertType: Int {
     case custom, text, textWithLoading, textWithIcon, textWithButton, textWithTwoButtons, textWithTitle
 }
 
@@ -21,10 +21,10 @@ public enum LIHAlertType {
     
 }
 
-open class LIHAlert: NSObject {
+@objc open class LIHAlert: NSObject {
     
     //delegates
-    open var delegate: LIHAlertDelegate?
+    @objc open var delegate: LIHAlertDelegate?
     
 
     

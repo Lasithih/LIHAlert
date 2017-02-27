@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class LIHAlertManager {
+@objc open class LIHAlertManager: NSObject  {
     
     
     open static func getTextAlert(message: String) -> LIHAlert {

@@ -404,6 +404,9 @@ alert.hasNavigationBar = false
 
 ### ChangeLog
 
+v2.0.3
+######Objective-C support(beta)
+
 v2.0.2
 ######Embed view controller support
 
