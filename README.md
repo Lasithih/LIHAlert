@@ -7,7 +7,7 @@
 #####Updated to Swift 3
 
 ![general](https://cloud.githubusercontent.com/assets/12048316/23353851/8814f5d4-fcf4-11e6-9e83-94a7f5c0e822.gif)
-![custom_list](https://cloud.githubusercontent.com/assets/12048316/23353854/88432f26-fcf4-11e6-9b95-d898f46775f5.gif)
+![custom](https://cloud.githubusercontent.com/assets/12048316/23353847/880ab1dc-fcf4-11e6-8756-11e7a4cc70bd.gif)
 
 [![CI Status](http://img.shields.io/travis/Lasith Hettiarachchi/LIHAlert.svg?style=flat)](https://travis-ci.org/Lasith Hettiarachchi/LIHAlert)
 [![Version](https://img.shields.io/cocoapods/v/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
@@ -143,6 +143,7 @@ To change the icon,
 #####5. Loading Alert
 
 This is a banner with a text and an activity indicator. This is not an auto close banner. You have to hide it when the process is finished.
+
 ![processing](https://cloud.githubusercontent.com/assets/12048316/23353852/8817c232-fcf4-11e6-821c-6c2b9351bed7.gif)
 
 ```Swift
@@ -194,6 +195,7 @@ class ViewController: LIHAlertDelegate {
 
 #####6. Text with two buttons Alert
 This alert contains two buttons along with a text.
+
 ![twobuttons](https://cloud.githubusercontent.com/assets/12048316/23353857/8871f068-fcf4-11e6-9975-5e174296327b.gif)
 
 ```Swift
@@ -227,7 +229,8 @@ class ViewController: LIHAlertDelegate {
 
 #####7. Custom View Alert
 You can specify any view to act as the banner.
-![custom](https://cloud.githubusercontent.com/assets/12048316/23353847/880ab1dc-fcf4-11e6-8756-11e7a4cc70bd.gif)
+
+![customview](https://cloud.githubusercontent.com/assets/12048316/23353846/87e36884-fcf4-11e6-9349-542ed94452c8.gif)
 
 ```Swift
     var customViewAlert: LIHAlert?
@@ -247,15 +250,18 @@ You can specify any view to act as the banner.
 
 
 ####How to embed a view controller
+
+![custom_list](https://cloud.githubusercontent.com/assets/12048316/23353854/88432f26-fcf4-11e6-9b95-d898f46775f5.gif)
+
 ```Swift
 var customViewAlert: LIHAlert?
 override func viewDidLoad() {
     super.viewDidLoad()
-    let m_vc = (self.storyboard?.instantiateViewController(withIdentifier: "MapVc"))!
-    self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView: m_vc.view)
+    let vc = (self.storyboard?.instantiateViewController(withIdentifier: "TableVc"))!
+    self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView: vc.view)
     self.customViewAlert?.initAlert(self.view)
-    self.addChildViewController(m_vc)
-    m_vc.didMove(toParentViewController: self)
+    self.addChildViewController(vc)
+    vc.didMove(toParentViewController: self)
 }
 func showBanner(sender: AnyObject) {
     self.customViewAlert?.show(nil, hidden: nil)
