@@ -405,19 +405,19 @@ alert.hasNavigationBar = false
 ### ChangeLog
 
 v2.0.4
-######Objective-C support(beta)
+###### Objective-C support(beta)
 
 v2.0.2
-######Embed view controller support
+###### Embed view controller support
 
 v2.0.0
-######Updated to Swift 3
+###### Updated to Swift 3
 
 v1.1.0
-######Fixed an issue - Alerts comes to the top when it appears
+###### Fixed an issue - Alerts comes to the top when it appears
 
 v1.0.0
-######Banner templates
+###### Banner templates
 * Text only
 * Text with a title 
 * Text with an ActivityIndicator
