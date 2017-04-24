@@ -12,7 +12,7 @@ import UIKit
 @objc open class LIHAlertManager: NSObject  {
     
     
-    open static func getTextAlert(message: String) -> LIHAlert {
+    open class func getTextAlert(message: String) -> LIHAlert {
         
         let alertTextAlert: LIHAlert = LIHAlert()
         alertTextAlert.alertType = LIHAlertType.text
@@ -30,7 +30,7 @@ import UIKit
     }
     
     
-    open static func getTextWithTitleAlert(title: String, message:String) -> LIHAlert {
+    open class func getTextWithTitleAlert(title: String, message:String) -> LIHAlert {
         
         let alertTextAlert: LIHAlert = LIHAlert()
         alertTextAlert.alertType = LIHAlertType.textWithTitle
@@ -51,7 +51,7 @@ import UIKit
     }
     
     
-    open static func getProcessingAlert(message: String) -> LIHAlert {
+    open class func getProcessingAlert(message: String) -> LIHAlert {
         
         let processingAlert: LIHAlert = LIHAlert()
         processingAlert.alertType = LIHAlertType.textWithLoading
@@ -70,7 +70,7 @@ import UIKit
     }
     
     
-    open static func getCustomViewAlert(customView: UIView) -> LIHAlert {
+    open class func getCustomViewAlert(customView: UIView) -> LIHAlert {
         
         let customViewAlert: LIHAlert = LIHAlert()
         customViewAlert.alertType = LIHAlertType.custom
@@ -84,7 +84,7 @@ import UIKit
     }
     
     
-    open static func getSuccessAlert(message: String) -> LIHAlert {
+    open class func getSuccessAlert(message: String) -> LIHAlert {
         
         let successAlert: LIHAlert = LIHAlert()
         successAlert.alertType = LIHAlertType.textWithIcon
@@ -104,7 +104,7 @@ import UIKit
     }
     
     
-    open static func getErrorAlert(message: String) -> LIHAlert {
+    open class func getErrorAlert(message: String) -> LIHAlert {
         
         let errorAlert: LIHAlert = LIHAlert()
         errorAlert.alertType = LIHAlertType.textWithIcon
@@ -124,7 +124,7 @@ import UIKit
     }
     
     
-    open static func getTextWithButtonAlert(message: String, buttonText: String) -> LIHAlert {
+    open class func getTextWithButtonAlert(message: String, buttonText: String) -> LIHAlert {
         
         let textWithButtonAlert: LIHAlert = LIHAlert()
         textWithButtonAlert.alertType = LIHAlertType.textWithButton
@@ -146,7 +146,7 @@ import UIKit
     }
     
     
-    open static func getTextWithTwoButtonsAlert(message: String, buttonOneText: String, buttonTwoText: String) -> LIHAlert {
+    open class func getTextWithTwoButtonsAlert(message: String, buttonOneText: String, buttonTwoText: String) -> LIHAlert {
         
         let textWithButtonsAlert: LIHAlert = LIHAlert()
         textWithButtonsAlert.alertType = LIHAlertType.textWithTwoButtons

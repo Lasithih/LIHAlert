@@ -9,7 +9,7 @@
 ![general](https://cloud.githubusercontent.com/assets/12048316/23353851/8814f5d4-fcf4-11e6-9e83-94a7f5c0e822.gif)
 ![custom](https://cloud.githubusercontent.com/assets/12048316/23353847/880ab1dc-fcf4-11e6-8756-11e7a4cc70bd.gif)
 
-[![CI Status](http://img.shields.io/travis/Lasith Hettiarachchi/LIHAlert.svg?style=flat)](https://travis-ci.org/Lasith Hettiarachchi/LIHAlert)
+<!--[![CI Status](http://img.shields.io/travis/Lasith Hettiarachchi/LIHAlert.svg?style=flat)](https://travis-ci.org/Lasith Hettiarachchi/LIHAlert)-->
 [![Version](https://img.shields.io/cocoapods/v/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
 [![License](https://img.shields.io/cocoapods/l/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
 [![Platform](https://img.shields.io/cocoapods/p/LIHAlert.svg?style=flat)](http://cocoapods.org/pods/LIHAlert)
