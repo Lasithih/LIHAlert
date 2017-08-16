@@ -3,8 +3,8 @@
 
 # LIHAlert
 
-#####LIHAlert provides animated banners for iOS.
-#####Updated to Swift 3
+LIHAlert provides animated banners for iOS.
+ Updated to Swift 3
 
 ![general](https://cloud.githubusercontent.com/assets/12048316/23353851/8814f5d4-fcf4-11e6-9e83-94a7f5c0e822.gif)
 ![custom](https://cloud.githubusercontent.com/assets/12048316/23353847/880ab1dc-fcf4-11e6-8756-11e7a4cc70bd.gif)
@@ -16,7 +16,7 @@
 
 
 
-###Demo Project
+### Demo Project
 The LIHAlert workspace contains a demo project, also used for developments.
 
 ### Requirements
@@ -65,7 +65,7 @@ LIHAlert contains some predefined alert templates for each Alert type.
 
 You can use following code snippets to use them. 
 
-#####1. Text Banner
+##### 1. Text Banner
 ![text](https://cloud.githubusercontent.com/assets/12048316/23353834/7c72d1c4-fcf4-11e6-9475-32bb4fc31ad6.gif)
 
 ```Swift
@@ -83,7 +83,7 @@ Call showBanner() function to show the banner
 
 
 
-#####2. Success Alert
+##### 2. Success Alert
 ![success](https://cloud.githubusercontent.com/assets/12048316/23353849/8811738c-fcf4-11e6-84c3-b9c51c4cc60a.gif)
 
 ```Swift
@@ -105,7 +105,7 @@ To change the icon,
 
 
 
-#####3. Error Alert
+##### 3. Error Alert
 ![error](https://cloud.githubusercontent.com/assets/12048316/23353848/880d199a-fcf4-11e6-934e-4ecd9cfc506f.gif)
 
 ```Swift
@@ -127,7 +127,7 @@ To change the icon,
 
 
 
-#####4. Text with title
+##### 4. Text with title
 ![textwithtitle](https://cloud.githubusercontent.com/assets/12048316/23353855/88660276-fcf4-11e6-8cf5-8ec076104ee9.gif)
 
 ```Swift
@@ -144,7 +144,7 @@ To change the icon,
 
 
 
-#####5. Loading Alert
+##### 5. Loading Alert
 
 This is a banner with a text and an activity indicator. This is not an auto close banner. You have to hide it when the process is finished.
 
@@ -172,7 +172,7 @@ To change the activity indicator style,
 
 
 
-#####6. Text with a button Alert
+##### 6. Text with a button Alert
 This alert contains a button along with a text. More suitable for notifying important messages to user.
 ![withbutton](https://cloud.githubusercontent.com/assets/12048316/23353856/886cba3a-fcf4-11e6-8f31-39be41e0d3a1.gif)
 
@@ -201,7 +201,7 @@ class ViewController: LIHAlertDelegate {
 
 
 
-#####7. Text with two buttons Alert
+##### 7. Text with two buttons Alert
 This alert contains two buttons along with a text.
 
 ![twobuttons](https://cloud.githubusercontent.com/assets/12048316/23353857/8871f068-fcf4-11e6-9975-5e174296327b.gif)
@@ -236,7 +236,7 @@ class ViewController: LIHAlertDelegate {
 
 
 
-#####8. Custom View Alert
+##### 8. Custom View Alert
 You can specify any view to act as the banner.
 
 ![customview](https://cloud.githubusercontent.com/assets/12048316/23353846/87e36884-fcf4-11e6-9349-542ed94452c8.gif)
@@ -259,7 +259,7 @@ You can specify any view to act as the banner.
 
 
 
-####How to embed a view controller
+#### How to embed a view controller
 
 ![custom_list](https://cloud.githubusercontent.com/assets/12048316/23353854/88432f26-fcf4-11e6-9b95-d898f46775f5.gif)
 
@@ -279,7 +279,7 @@ func showBanner(sender: AnyObject) {
 ```
 See 'CustomAlertsViewController' for more embed view controller examples
 
-####How to create your own banner
+#### How to create your own banner
 
 ```Swift
     let alertTextAlert: LIHAlert = LIHAlert()
@@ -296,14 +296,14 @@ See 'CustomAlertsViewController' for more embed view controller examples
     alertTextAlert.autoCloseTimeInterval = 1.5
 ```
 
-#####ALert Types
+##### ALert Types
 ```Swift
     enum LIHAlertType {
             case Custom, Text, TextWithLoading, TextWithIcon, TextWithButton, TextWithTwoButtons, TextWithTitle
     }
 ```
 
-####List of all properties
+#### List of all properties
 ```Swift
     //delegates
     public var delegate: LIHAlertDelegate?
