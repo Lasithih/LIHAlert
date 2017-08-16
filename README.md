@@ -375,6 +375,9 @@ See 'CustomAlertsViewController' for more embed view controller examples
     public var  autoCloseEnabled: Bool //Default is true
     public var  autoCloseTimeInterval: Double //Default is 3.0
     public var  hasNavigationBar: Bool //Default is false
+    public var  touchBackgroundToDismiss: Bool //default is false
+    public var  dimsBackground: Bool //default is false
+    public var backgroundDimOpacity: CGFloat //default is 0.4
 
 ```
 
@@ -403,6 +406,9 @@ alert.hasNavigationBar = false
 ```
 
 ### ChangeLog
+
+v2.1.0
+###### Dim background, Touch background to dismiss
 
 v2.0.4
 ###### Objective-C support(beta)
