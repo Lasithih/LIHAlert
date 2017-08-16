@@ -407,7 +407,7 @@ alert.hasNavigationBar = false
 
 ### ChangeLog
 
-v2.1.0
+v2.1.1
 ###### Dim background, Touch background to dismiss
 
 v2.0.4
