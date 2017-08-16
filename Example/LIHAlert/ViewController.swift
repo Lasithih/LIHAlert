@@ -36,8 +36,6 @@ class ViewController: UIViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CustomViewVc")
         self.customViewAlert = LIHAlertManager.getCustomViewAlert(customView: vc!.view.viewWithTag(5)!)
         self.customViewAlert?.alertHeight = 180
-        self.customViewAlert?.touchBackgroundToDismiss = true
-        self.customViewAlert?.dimsBackground = true
         self.customViewAlert?.initAlert(self.view)
         
         self.textWithButtonAlert = LIHAlertManager.getTextWithButtonAlert(message: "You have successfully subscribed for the monthly newsletter", buttonText: "Dismiss")
@@ -47,6 +45,8 @@ class ViewController: UIViewController {
         self.textWithTwoButtonsAlert?.initAlert(self.view)
         
         self.processingAlert = LIHAlertManager.getProcessingAlert(message: "Fetching data...")
+        self.customViewAlert?.touchBackgroundToDismiss = true
+        self.customViewAlert?.dimsBackground = true
         self.processingAlert?.initAlert(self.view)
         
         self.successAlert = LIHAlertManager.getSuccessAlert(message: "Successfully subscribed")
