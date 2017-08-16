@@ -262,6 +262,14 @@ import UIKit
     open var  autoCloseEnabled: Bool = true
     open var  autoCloseTimeInterval: Double = 3.0
     open var  hasNavigationBar: Bool = false
+    open var  touchBackgroundToDismiss: Bool = false
+    open var  dimsBackground: Bool = false
+    open var backgroundDimOpacity: CGFloat = 0.4 {
+        didSet {
+            self.overlayView?.alpha = self.backgroundDimOpacity
+        }
+    }
+    
     
     //private variables
     fileprivate var navBarHeight: CGFloat = 44.0 + 20.0
@@ -290,7 +298,19 @@ import UIKit
         self.overlayView = UIView()
         self.overlayView?.clipsToBounds = true
         self.overlayView?.isHidden = true
-        let overlayHeight = self.alertHeight
+        var overlayHeight = self.alertHeight
+        
+        if self.touchBackgroundToDismiss {
+            let tapBg = UITapGestureRecognizer(target: self, action: #selector(LIHAlert.backgroundTapped(gesture:)))
+            overlayHeight = UIScreen.main.bounds.height
+            self.overlayView?.addGestureRecognizer(tapBg)
+        }
+        if self.dimsBackground {
+            let dimV = UIView(frame: UIScreen.main.bounds)
+            dimV.backgroundColor = UIColor.black
+            dimV.alpha = self.backgroundDimOpacity
+            self.overlayView?.addSubview(dimV)
+        }
         var topMargin: CGFloat = 0.0
         
 //        if let customView = self.alertView {
@@ -301,6 +321,7 @@ import UIKit
         if self.hasNavigationBar {
             topMargin = self.navBarHeight
         }
+        
         if let overlay = self.overlayView {
             container.addSubview(overlay)
             container.bringSubview(toFront: overlay)
@@ -755,6 +776,7 @@ import UIKit
                 self.hideAlert() {
                     () -> Void in
                     hidden?()
+                    
                 }
             })
         }
@@ -855,4 +877,21 @@ import UIKit
             self.buttonTwo_textWithButton?.alpha = buttonHighlightAlpha
         }
     }
+    
+    func backgroundTapped(gesture: UITapGestureRecognizer) {
+        
+        if let ol = self.overlayView {
+            
+            let point = gesture.location(in: ol)
+            if self.alertView?.point(inside: point, with: nil) == true {
+                
+            } else {
+                if self.touchBackgroundToDismiss {
+                    self.hideAlert(nil)
+                }
+            }
+        }
+        
+    }
 }
+
