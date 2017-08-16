@@ -45,8 +45,8 @@ class ViewController: UIViewController {
         self.textWithTwoButtonsAlert?.initAlert(self.view)
         
         self.processingAlert = LIHAlertManager.getProcessingAlert(message: "Fetching data...")
-        self.customViewAlert?.touchBackgroundToDismiss = true
-        self.customViewAlert?.dimsBackground = true
+        self.processingAlert?.touchBackgroundToDismiss = true
+        self.processingAlert?.dimsBackground = true
         self.processingAlert?.initAlert(self.view)
         
         self.successAlert = LIHAlertManager.getSuccessAlert(message: "Successfully subscribed")
