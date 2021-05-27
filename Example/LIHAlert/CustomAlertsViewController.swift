@@ -42,8 +42,8 @@ class CustomAlertsViewController: UIViewController {
         alert?.alertHeight = height
         alert?.initAlert(self.view)
         alert?.autoCloseTimeInterval = 3
-        self.addChildViewController(vc)
-        vc.didMove(toParentViewController: self)
+        self.addChild(vc)
+        vc.didMove(toParent: self)
     }
     
     
